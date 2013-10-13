@@ -11,10 +11,13 @@ it is hosted on. Non web based frontends SHOULD use a server that
 is configurable in their settings. They SHALL NOT contain hard coded
 references to a given backend server.
 
-A HEAD request to / MUST return a Link header pointing to a list of
-app resources. The client MUST include its own version in the
-request.
-It MUST return a X-Version header specifying the version of the
+A HEAD request to / MUST return a Link header with a rel value of
+"meta" pointing to a list of app resources. The type of the link
+SHALL be "application/vnd.graviton.app+json".
+
+The frontend MUST specifiy its version in the requests X-Version
+header.
+The backend MUST return a X-Version header specifying the version of the
 installed graviton server. It is REQUIRED that the frontend displays
 this version along with its own version in a human readable format.
 Both versions MUST adhere to the
@@ -25,28 +28,37 @@ installed gravity platform. This name SHOULD be used by the client
 to decorate its branding.
 
 ````
-  +------------+                                  +---------------+
-  |            |   X-Version: 1.0.0               |               |
-  |            |   HEAD /                         |               |
-  |            | <------------------------------- |               |
-  |  Graviton  |   Link: </core/app>; rel="app"   |  Graviphoton  |
-  |            |   X-Version: 1.0.0               |               |
-  |            |   [X-Name: Gravity]              |               |
-  |            | -------------------------------> |               |
-  +------------+                                  +---------------+
+  +------------+                             +---------------+
+  |            |   X-Version: 1.0.0          |               |
+  |            |   HEAD /                    |               |
+  |            | <-------------------------- |               |
+  |  Graviton  |   Link: rel="meta"          |  Graviphoton  |
+  |            |   X-Version: 1.0.0          |               |
+  |            |   [X-Name: Gravity]         |               |
+  |            | --------------------------> |               |
+  +------------+                             +---------------+
+````
+
+A full Link header pointing to /core/app SHOULD look like the following
+example.
+
+````
+  Link: <http://example.com/core/app>; type="application/vnd.graviton.app+json"; rel="meta"
 ````
 
 ## frontend discovers apps
 
 The frontend MUST initiate loading a list of apps from the Link
-endpoint given by the Link headers rel="app" location where the
+endpoint given by the Link headers rel="meta" location where the
 backend MUST return a list of apps for the frontend to display.
+The frontend MUST use the application type from discovery for
+this request.
 
 ````
-  +------------+                                  +---------------+
-  |            |   GET /core/app                  |               |
-  |  Graviton  | <------------------------------- |  Graviphoton  |
-  |            |   /core/app                      |               |
-  |            | -------------------------------> |               |
-  +------------+                                  +---------------+
+  +------------+                             +---------------+
+  |            |   GET /core/app             |               |
+  |  Graviton  | <-------------------------- |  Graviphoton  |
+  |            |   /core/app                 |               |
+  |            | --------------------------> |               |
+  +------------+                             +---------------+
 ````
