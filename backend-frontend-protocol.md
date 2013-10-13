@@ -18,7 +18,7 @@ SHALL be "application/vnd.graviton.app+json".
 The frontend MUST specifiy its version in the requests X-Version
 header.
 The backend MUST return a X-Version header specifying the version of the
-installed graviton server. It is REQUIRED that the frontend displays
+installed backend server. It is REQUIRED that the frontend displays
 this version along with its own version in a human readable format.
 Both versions MUST adhere to the
 [Semantic Versioning 2.0.0](http://semver.org) standard.
@@ -48,11 +48,12 @@ example.
 
 ## frontend discovers apps
 
-The frontend MUST initiate loading a list of apps from the Link
-endpoint given by the Link headers rel="meta" location where the
-backend MUST return a list of apps for the frontend to display.
-The frontend MUST use the application type from discovery for
-this request.
+After discovering the backend the frontend MUST load a list of
+apps from the endpoint given by the Link header with a rel value
+"meta" and type "application/vnd.graviton.app+json".
+
+The backend SHALL return a list of apps that are available to the
+user.
 
 ````
   +------------+                             +---------------+
