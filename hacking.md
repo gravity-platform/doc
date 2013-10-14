@@ -2,7 +2,7 @@
 title: Developer Guide
 layout: default
 ---
-# hacking
+# How to Hack the Gravity-Platform
 
 This document show how to hack the gravity-plattform in a most effectiv fashion.
 
@@ -13,7 +13,7 @@ This document show how to hack the gravity-plattform in a most effectiv fashion.
 This document has a normative character and all developers MUST follow the
 guidelines given.
 
-## code repositories
+## Code Repositories
 
 The gravity-plattform SHALL be hosted on the following github organisations.
 
@@ -29,14 +29,12 @@ Further reading on ``git-flow`` may be found on the excellent
 [``git-flow`` cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/).
 
 You MUST use the ``git-flow`` model on the aforementioned github organisations.
-As an exception to the rule the [gravity-plattform/doc](https://github.com/gravity-platform/doc)
-SHALL NOT use ``git-flow`` for the time being (this is slated to change as the platform reaches its initial
-stable release).
 Is is RECOMMENDED that you also use ``git-flow`` on internal applications based on the gravity-platform.
-You MUST use the default branch prefixes given by ``git-flow`` except for the veresion tag prefix 
-which SHALL be ``v``.
+You MUST use the default branch prefixes given by ``git-flow`` except for the version tag prefix 
+which SHALL be ``v``. As an exception to the stated rule, the gravity-platform/doc git repository
+MUST use the ``gh-pages`` branch as default.
 
-## semantic versioning
+## Semantic Versioning
 
 It is very import for packages to not only be versioned but for these versions to
 convey a clear and semantic meaning. Thus all packages in the aforementioned repositories
@@ -46,3 +44,18 @@ specification.
 Incrementing the version SHOULD be done on a ``release`` branch after carefully considering
 all the merges in ``develop`` or in ``hotfixes``. On the ``develop`` branch the version number
 SHOULD always point to the next MINOR version and be postfixed with ``-dev``.
+
+## Package Repositories
+
+The gravity-platform makes heavy use of multiple package repositories. The repositories being used
+MUST be detailed in this guide.
+
+The PHP package archive [packagist](https://packagist.org/) SHALL be used for code in the libgraviton
+organisation.
+
+Node packaged modules [npm](https://npmjs.org/) SHOULD only be used during the build phase of JavaScript based
+projects.
+
+Precompiled JavaScript components MUST be installed with [Bower components](http://sindresorhus.com/bower-components/)
+before they MAY be compiled into a deliverable using tools from npm.
+
