@@ -29,6 +29,8 @@ As an exception to the rule the [gravity-plattform/doc](https://github.com/gravi
 SHALL NOT use ``git-flow`` for the time being (this is slated to change as the platform reaches its initial
 stable release).
 Is is RECOMMENDED that you also use ``git-flow`` on internal applications based on the gravity-platform.
+You MUST use the default branch prefixes given by ``git-flow`` except for the veresion tag prefix 
+which SHALL be ``v``.
 
 ## semantic versioning
 
