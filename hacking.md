@@ -44,3 +44,18 @@ specification.
 Incrementing the version SHOULD be done on a ``release`` branch after carefully considering
 all the merges in ``develop`` or in ``hotfixes``. On the ``develop`` branch the version number
 SHOULD always point to the next MINOR version and be postfixed with ``-dev``.
+
+## Package Repositories
+
+The gravity-platform makes heavy use of multiple package repositories. The repositories being used
+MUST be detailed in this guide.
+
+The PHP package archive [packagist](https://packagist.org/) SHALL be used for code in the libgraviton
+organisation.
+
+Node packaged modules [npm](https://npmjs.org/) SHOULD only be used during the build phase of JavaScript based
+projects.
+
+Precompiled JavaScript components MUST be installed with [Bower components](http://sindresorhus.com/bower-components/)
+before they MAY be compiled into a deliverable using tools from npm.
+
