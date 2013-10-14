@@ -2,7 +2,7 @@
 title: Developer Guide
 layout: default
 ---
-# hacking
+# How to Hack the Gravity-Platform
 
 This document show how to hack the gravity-plattform in a most effectiv fashion.
 
@@ -13,7 +13,7 @@ This document show how to hack the gravity-plattform in a most effectiv fashion.
 This document has a normative character and all developers MUST follow the
 guidelines given.
 
-## code repositories
+## Code Repositories
 
 The gravity-plattform SHALL be hosted on the following github organisations.
 
@@ -34,7 +34,7 @@ You MUST use the default branch prefixes given by ``git-flow`` except for the ve
 which SHALL be ``v``. As an exception to the stated rule, the gravity-platform/doc git repository
 MUST use the ``gh-pages`` branch as default.
 
-## semantic versioning
+## Semantic Versioning
 
 It is very import for packages to not only be versioned but for these versions to
 convey a clear and semantic meaning. Thus all packages in the aforementioned repositories
