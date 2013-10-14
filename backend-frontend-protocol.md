@@ -1,3 +1,7 @@
+---
+title: Backend - Frontend Protocol Spec
+layout: default
+---
 # Backend - Frontend Protocol
 
 This document describes the protocol between the graviton backend and

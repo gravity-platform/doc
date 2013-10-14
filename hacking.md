@@ -1,3 +1,7 @@
+---
+title: Developer Guide
+layout: default
+---
 # hacking
 
 This document show how to hack the gravity-plattform in a most effectiv fashion.
