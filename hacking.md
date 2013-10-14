@@ -34,7 +34,7 @@ Is is RECOMMENDED that you also use ``git-flow`` on internal applications based 
 
 It is very import for packages to not only be versioned but for these versions to
 convey a clear and semantic meaning. Thus all packages in the aforementioned repositories
-MUST follow the rules given in the (Semantic Versioning 2.0.0)[http://semver.org/spec/v2.0.0.html]
+MUST follow the rules given in the [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html)
 specification.
 
 Incrementing the version SHOULD be done on a ``release`` branch after carefully considering
