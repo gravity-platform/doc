@@ -1,3 +1,7 @@
+---
+title: Install
+layout: default
+---
 # install
 
 Ensure that you have the following dependencies on your system.
