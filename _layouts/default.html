@@ -27,7 +27,9 @@
           <ul class="nav navbar-nav">
             {% for node in site.pages %}
               {% if node.url != "/index.html" %}
-                {% if node.path != page.path %}
+                {% if node.path == page.path %}
+                  <li class="active"><a href="/doc{{node.url}}">{{node.title}}</a></li>
+		{% else %}
                   <li><a href="/doc{{node.url}}">{{node.title}}</a></li>
                 {% endif %}
               {% endif %}
