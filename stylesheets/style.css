@@ -35,3 +35,7 @@ body {
 .container .credit {
   margin: 20px 0;
 }
+
+.highlight > pre > code {
+  background-color: #f5f5f5
+}
