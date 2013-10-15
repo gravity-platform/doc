@@ -1,12 +1,28 @@
 ---
-title: Graviphoton-Documentation
+title: Gravity-Platform Documentation
 layout: default
 ---
-# Graviphoton-Documentation
+# Gravity-Platform Documentation
 
-This is the main documentation site for the graviton-platform. The platform consists of the following project registered as organisations on github.
+This is the main documentation site for the graviton-platform. The platform consists of the following projects registered as organisations on github.
 
-* [gravity-plattform](https://github.com/gravity-platform)
-* [graviton](https://github.com/libgraviton) (hosted under libgraviton for historical reasons)
-* [graviphoton](https://github.com/graviphoton)
+````
+  +-------------------------------------+
+  |                                     |
+  |          gravity-plattform          |
+  |                                     |
+  |  +------------+  +---------------+  |
+  |  |            |  |               |  |
+  |  |  graviton  |  |  graviphoton  |  |
+  |  |            |  |               |  |
+  |  +------------+  +---------------+  |
+  |                                     |
+  +-------------------------------------+
+````
 
+- [graviton](https://github.com/libgraviton) PHP based REST server (hosted under libgraviton for historical reasons)
+- [graviphoton](https://github.com/graviphoton) JavaScript based user interface
+- [gravity-plattform](https://github.com/gravity-platform) platform for developing and running graviton and graviphoton
+
+Next, you might head over to the [Installation Guide](/doc/install.html) to get started. The
+[Developer Guide](/doc/hacking.html) is also an important resource.
