@@ -4,7 +4,7 @@ layout: default
 ---
 # How to Install the Gravity-Platform
 
-Ensure that you're system meets the following dependencies.
+Ensure that your system meets the following dependencies.
 
 * php >= 5.3
 * npm
