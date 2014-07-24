@@ -35,8 +35,8 @@ Both versions MUST adhere to the
 [Semantic Versioning 2.0.0](http://semver.org) standard.
 
 The backend MAY return an X-Name header containing a name of the
-installed gravity platform. This name SHOULD be used by the client
-to decorate its branding.
+installed gravity platform. If returned this name SHOULD be used by
+the client to decorate its branding.
 
 ````
   +------------+                             +---------------+
@@ -54,14 +54,14 @@ A full Link header pointing to /core/app SHOULD look like the following
 example.
 
 ````
-  Link: <http://example.com/core/app>; type="application/vnd.graviton.app+json"; rel="meta"
+  Link: <http://example.com/core/app>; rel="apps"; type="application/json"
 ````
 
 ## frontend discovers apps
 
 After discovering the backend the frontend MUST load a list of
 apps from the endpoint given by the Link header with a rel value
-"meta" and type "application/vnd.graviton.app+json".
+"apps" and type "application/json".
 
 The backend SHALL return a list of apps that are available to the
 user.
@@ -74,3 +74,7 @@ user.
   |            | --------------------------> |               |
   +------------+                             +---------------+
 ````
+
+The backend MAY use the returned apps so display links to other apps running
+on the same gravity-plattform. It SHALL only link to apps returned by this
+service.
