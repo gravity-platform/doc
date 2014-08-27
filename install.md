@@ -18,6 +18,17 @@ If you are not on Mavericks this will probably also work. You will
 need to use a different zend_extension path in the ini file below
 and you might miss out on PHP 5.4 features on older OSX.
 
+To install npm and git you need a package manager like [MacPorts](http://www.macports.org/).
+
+After installing MacPorts and adding ``/usr/local/bin`` to PATH you can install stuff.
+
+The following prerequisites are needed to install pecl packages.
+
+````bash
+sudo port install autoconf # prereq for pecl packages
+sudo port install icu      # prereq for mod_intl pecl package
+````
+
 ````bash
 sudo php -d detect_unicode=0 /usr/lib/php/install-pear-nozlib.phar
 sudo pecl install xdebug
@@ -42,9 +53,7 @@ magic_quotes_gpc=off
 xdebug.max_nesting_level=250
 ````
 
-To install npm and git you need a package manager like [MacPorts](http://www.macports.org/).
-
-After installing MacPorts and adding ``/usr/local/bin`` to PATH you can install stuff.
+Install npm if you need to hack graviphoton
 
 ````bash
 sudo port install npm
@@ -52,6 +61,9 @@ sudo port install git
 ````
 
 ## Gravity-Platform Installation
+
+This is the (currently defunct) all in one installation. Please refer to graviton
+or graviphotons README.md for respective manual installation instructions.
 
 Run the install commands.
 
