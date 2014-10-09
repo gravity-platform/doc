@@ -101,6 +101,6 @@ POST /core/app -> create new app
 ````
 GET /core/app/hello -> returns hello world app
 PUT /core/app/hello -> replace hello world app
-PATCH /core/app/hello -> allter hello world app using json-patch
+PATCH /core/app/hello -> alter hello world app using json-patch
 DELETE /core/app/hello -> delete app
 ````
