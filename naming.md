@@ -102,6 +102,11 @@ would be Windows-specific, use "libraryFile" instead.
 * Stuff that sound english but aren't or have a different meaning (I'm looking at you, *mandate*)  
 * Names of people
 * Any obscenities
+* reserved words from the following environments/languages:
+  * PHP
+  * Javascript
+  * MariaDB
+  * MongoDB
 
 ## Common data structures
 
