@@ -11,7 +11,7 @@ the graviphoton frontend.
 > "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in
 > this document are to be interpreted as described in RFC 2119.
 
-This document describes a domain specific, [HEATEOS](http://en.wikipedia.org/wiki/HATEOAS)
+This document describes a domain specific, [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)
 compliant [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer) interface.
 It has a normative character and is complemented by the api docs of the interface.
 
