@@ -9,8 +9,8 @@ layout: default
 > 
 > -- Phil Karlton
 
-Historically, naming things in IT wasn't considered that important. That was wrong. Naming *is* important.
-If you still didn't realize that, consider this: **You are dead wrong and probably stupid.**
+Historically, naming things in IT was not considered that important. That was wrong. Naming *is* important.
+If you still did not realize that, consider this: **You are dead wrong and probably stupid.**
 
 In this context of services and APIs, naming becomes even more relevant. Logical, structured,
 meaningful and (at best) instantly understandable naming is king. This guide outlines some basic principals
@@ -21,7 +21,7 @@ the platform itself.
 
 ## Basic philosophy
 
-Naming is hard, we all know that. We don't say that those rules outlined here make the best naming of the world or anything. 
+Naming is hard, we all know that. We do not say that those rules outlined here make the best naming of the world or anything. 
 But an important aspect of naming is consistency. So the main matter is that all involved parties agree on some rules
 regarding the naming to prevent horrible discrepancies in names.
 
@@ -71,7 +71,7 @@ creationDate
 customerId
 ```
 
-We don't add those suffixes because the user couldn't find out the data type by himself. 
+We do not add those suffixes because the user could not find out the data type by himself. 
 It's just to add more precise scope to the value. Let's say we would name it just `creation` or `customer`,
 then it's not as specific. In the case of `creation` it's just unclear, in case of `customer`, one might
 expect an embedded customer, not an id. 
@@ -93,13 +93,13 @@ oracle
 userbk_nr
 ``` 
 
-Generally, don't use:
+Generally, do not use:
 
-* Any brand/company names from software involved and/or source and/or target systems (anything that isn't 
+* Any brand/company names from software involved and/or source and/or target systems (anything that is not 
 included in the list above) as those are subject to change.
-* Names that are specific/exclusive to an external application. For example, don't use "DLL" as this 
+* Names that are specific/exclusive to an external application. For example, do not use "DLL" as this 
 would be Windows-specific, use "libraryFile" instead.
-* Stuff that sound english but aren't or have a different meaning (I'm looking at you, *mandate*)  
+* Names that sounds english but are not or have a different meaning (I'm looking at you, *mandate*)  
 * Names of people
 * Any obscenities
 * reserved words from the following environments/languages:
@@ -139,7 +139,7 @@ A **bad example** would be:
 }
 ````
 
-Just call it `status` in this example, it's obviously a text. We don't need you to tell us.. keep it simple ;-)
+Just call it `status` in this example, it's obviously a text. We do not need you to tell us.. keep it simple ;-)
 
 ### "A code" (Translatable with additional id)
 
