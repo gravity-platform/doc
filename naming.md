@@ -27,11 +27,11 @@ regarding the naming to prevent horrible discrepancies in names.
 
 Here are some basic important points:
 
-* **All names together form something**<br/>Whether this is conscious or not, if you're using an application (like ours), over time a lingo (a small language) forms. All names public to the user alltogether should make sense. I'm trying to emphasize the importance of a naming strategy. If all names of an application visible to the user make sense as a whole, user experience is impacted positively.
-* **Names should say something**<br/>A good name tells you something about the purpose and/or type of the thing. A name like `creationDate` is perfect - it's short, it's telling that we have date and that it describes when something was created. What more do you want? Try to pick a name that tells the user something.
-* **Don't reinvent names**<br/>If you need to name something, *really check* beforehand if the same thing has been named already somewhere. Even if you would have a better name, it's often better to take the same "bad" name again to not add more confusion. In some cases, yes, let's introduce a new name for an already name thing, but please discuss this.
-* **Keep it simple**<br/>Obviously, we urge you to make up names that mean something. But **please** don't overboard. NobodyLikesANameThatIsJustObviouslyTooLong. If names get too long, you're trying to say to much with it ;-)
-* **You're writing in stone - think and discuss!**<br/>I mean it. You are naming something that (maybe) will be used many years to come in different shapes and/or scenarios. Time is well worth spent discussing names. We all have suffered from bad names in our careers, let's not put others through the same pain.. ;-)
+* **All names together form something**<br/>Whether this is conscious or not, if you are using an application (like ours), over time a lingo (a small language) forms. All names public to the user should make sense when viewed as a whole. I'm trying to emphasize the importance of a naming strategy. If all names of an application visible to the user make sense as a whole, user experience is impacted positively.
+* **Names should say something**<br/>A good name tells you something about the purpose and/or type of the thing. A name like `creationDate` is perfect - it's short, it classifies its context as a date and a creation context. What more do you want? Alway pick names that tell the user something.
+* **Do not reinvent names**<br/>If you need to name something, *really check* beforehand if the same thing has been named already somewhere. Even if you would have a better name, it's often better to take the same "bad" name again to not add more confusion. In some cases, yes, let's introduce a new name for an already name thing, but please discuss this.
+* **Keep it simple**<br/>Obviously, we urge you to make up names that mean something. But **please** do not overboard. NobodyLikesANameThatIsJustObviouslyTooLong. If names get too long, you are trying to say to much with it ;-)
+* **You are writing in stone - think and discuss!**<br/>I mean it. You are naming something that (maybe) will be used many years to come in different shapes and/or scenarios. Time is well worth spent discussing names. We all have suffered from bad names in our careers, let's not put others through the same pain.. ;-)
 
 
 
