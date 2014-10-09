@@ -136,22 +136,20 @@ A **bad example** would be:
 
 Just call it `status` in this example, it's obviously a text. We don't need you to tell us.. keep it simple ;-)
 
-### "A code" (Translatable with external id)
+### "A code" (Translatable with additional id)
 
-What we call "code" here is basically an inline Translatable but in addition, we also provide a numeric id to the client
-(for convenience and for easier matching on the client side).
+What we call "code" here is basically an inline Translatable but in addition, we also provide an id to the client.
 
 This should look like this:
 
 ````javascript
 {
-  "contactType": {
-    externalId: 33,
+  "recordType": {
+    id: "LP"
     text: {
-      "en": "Telephone",
-      "de": "Telefon"
+      "en": "Long Play",
+      "de": "Langspielplatte"
     }
   }
 }
 ````
-
