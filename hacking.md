@@ -59,3 +59,65 @@ projects.
 Precompiled JavaScript components MUST be installed with [Bower components](http://sindresorhus.com/bower-components/)
 before they MAY be compiled into a deliverable using tools from npm.
 
+## Components
+
+### Graviton
+
+#### Services
+
+##### Generating a Service
+
+TODO: show how to use the generator
+
+##### Service Anatomy
+
+Each service in graviton-2 SHALL consist of the following files. The follwing example was taken from the ``/core/app`` service.
+
+<table>
+  <tr>
+    <th>File/Directory</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle</code></td>
+    <td>bundle directory, contains all the files related to a bundle</td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Controller/AppController.php</code></td>
+    <td>controller for ``/core/app`` service, extends RestController</td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/DataFixtures/MongoDB/LoadAppData.php</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Document/App.php</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Model/App.php</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Repository/AppRepository.php</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Resources/config/doctrine/App.mongodb.xml</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Resources/config/schema/App.json</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Resources/config/serializer/Document.App.xml</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle/Tests/Controller/AppControllerTest.php</code></td>
+    <td></td>
+  </tr>
+</table>
+
+### Graviphoton
