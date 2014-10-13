@@ -84,39 +84,39 @@ Each service in graviton-2 SHALL consist of the following files. The follwing ex
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Controller/AppController.php</code></td>
-    <td>controller for ``/core/app`` service, extends RestController</td>
+    <td>controller for <code>/core/app</code> service, extends <code>RestController</code></td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/DataFixtures/MongoDB/LoadAppData.php</code></td>
-    <td></td>
+    <td>fixture loader, loads fixtures on initial install and during testing</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Document/App.php</code></td>
-    <td></td>
+    <td>service document, access a single instance of an item</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Model/App.php</code></td>
-    <td></td>
+    <td>service mode, wrapper around document and repository, adds schema information for a service</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Repository/AppRepository.php</code></td>
-    <td></td>
+    <td>service repository, access collections of documents</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Resources/config/doctrine/App.mongodb.xml</code></td>
-    <td></td>
+    <td>MongoDB config, defines how data is persisted</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Resources/config/schema/App.json</code></td>
-    <td></td>
+    <td>model config, schema information for the service</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Resources/config/serializer/Document.App.xml</code></td>
-    <td></td>
+    <td>serializer config, defines how data is serialized and deserialized to the client</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Tests/Controller/AppControllerTest.php</code></td>
-    <td></td>
+    <td>service tests, e2e tests that make later refactoring possible</td>
   </tr>
 </table>
 
