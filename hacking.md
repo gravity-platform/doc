@@ -73,6 +73,8 @@ TODO: document how to use the generator
 php app/console graviton:generate:resource --entity=GravitonFooBundle:Bar --format=xml --fields="name:string" --with-repository --no-interaction
 ````
 
+After generating a new service you MUST review the committed code properly.
+
 ##### Service Anatomy
 
 Each graviton service SHALL consist of the following files. The following example was taken from the ``/core/app`` service.
@@ -132,6 +134,8 @@ Each graviton service SHALL consist of the following files. The following exampl
   </tr>
 </table>
 
-You SHOULD look at the [CoreBundle](https://github.com/libgraviton/graviton/tree/develop/src/Graviton/CoreBundle) to see some examples of this in action.
+You MAY look at [CoreBundles code](https://github.com/libgraviton/graviton/tree/develop/src/Graviton/CoreBundle) to see  this in action.
+
+If you want to manually create a service you MUST implement all the above elements. It is RECOMMENDED that you use the aformentioned ``graviton:generate:resource`` for all you service creation needs.
 
 ### Graviphoton
