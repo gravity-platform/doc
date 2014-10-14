@@ -84,23 +84,23 @@ Each service in graviton-2 SHALL consist of the following files. The follwing ex
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Controller/AppController.php</code></td>
-    <td>controller for <code>/core/app</code> service, extends <code>RestController</code></td>
+    <td>controller for <code>/core/app</code> service, MUST extend <code>Graviton\RestBundle\Controller\RestController</code></td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/DataFixtures/MongoDB/LoadAppData.php</code></td>
-    <td>fixture loader, loads fixtures on initial install and during testing</td>
+    <td>fixture loader, loads fixtures on initial install and during testing, MUST implement <code>Doctrine\Common\DataFixtures\FixtureInterface</code></td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Document/App.php</code></td>
-    <td>service document, access a single instance of an item</td>
+    <td>service document, access a single instance of an item, SHOULD implement <code>Graviton\I18nBundle\Document\TranslatableDocumentInterface</code></td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Model/App.php</code></td>
-    <td>service mode, wrapper around document and repository, adds schema information for a service</td>
+    <td>service mode, wrapper around document and repository, adds schema information for a service, MUST extend <code>Graviton\RestBundle\Model\DocumentModel</code></td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Repository/AppRepository.php</code></td>
-    <td>service repository, access collections of documents</td>
+    <td>service repository, access collections of documents, MUST extend <code>Doctrine\ODM\MongoDB\DocumentRepository</code></td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Resources/config/doctrine/App.mongodb.xml</code></td>
@@ -115,16 +115,16 @@ Each service in graviton-2 SHALL consist of the following files. The follwing ex
     <td>serializer config, defines how data is serialized and deserialized to the client</td>
   </tr>
   <tr>
-    <td><code>src/Graviton/CoreBundle//Resources/config/services.xml</code></td>
+    <td><code>src/Graviton/CoreBundle/Resources/config/services.xml</code></td>
     <td><abbr title="Dependency Injection Container">DIC</abbr> configuration, define services for classes needed by the service</td>
   </tr>
   <tr>
-    <td><code>src/Graviton/CoreBundle//Resources/config/validation.xml</code></td>
+    <td><code>src/Graviton/CoreBundle/Resources/config/validation.xml</code></td>
     <td>Validation constraints for service data</td>
   </tr>
   <tr>
     <td><code>src/Graviton/CoreBundle/Tests/Controller/AppControllerTest.php</code></td>
-    <td>service tests, e2e tests that make later refactoring possible</td>
+    <td>service tests, e2e tests that make later refactoring possible, MUST extend <code>Graviton\TestBundle\Test\RestTestCase</code></td>
   </tr>
 </table>
 
