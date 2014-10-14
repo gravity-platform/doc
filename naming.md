@@ -10,7 +10,7 @@ layout: default
 > -- Phil Karlton
 
 Historically, naming things in IT was not considered that important. That was wrong. Naming *is* important.
-If you still did not realize that, consider this: **You are dead wrong and probably stupid.**
+If you still did not realize that, consider this: **You are dead wrong and probably did not think this through.**
 
 In this context of services and APIs, naming becomes even more relevant. Logical, structured,
 meaningful and (at best) instantly understandable naming is king. This guide outlines some basic principals
