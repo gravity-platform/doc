@@ -67,13 +67,15 @@ before they MAY be compiled into a deliverable using tools from npm.
 
 ##### Generating a Service
 
-TODO: document how to use the generator
+The service generator MAY be called as follows.
 
 ````
 php app/console graviton:generate:resource --entity=GravitonFooBundle:Bar --format=xml --fields="name:string" --with-repository --no-interaction
 ````
 
-After generating a new service you MUST review the committed code properly.
+Please refer to ``php app/console generate:doctrine:entities --help`` for further usage information.
+
+After generating a new service you MUST review the code before committing it proper.
 
 ##### Service Anatomy
 
