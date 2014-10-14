@@ -71,7 +71,7 @@ TODO: show how to use the generator
 
 ##### Service Anatomy
 
-Each service in graviton-2 SHALL consist of the following files. The follwing example was taken from the ``/core/app`` service.
+Each graviton service SHALL consist of the following files. The following example was taken from the ``/core/app`` service.
 
 <table>
   <tr>
@@ -127,5 +127,7 @@ Each service in graviton-2 SHALL consist of the following files. The follwing ex
     <td>service tests, e2e tests that make later refactoring possible, MUST extend <code>Graviton\TestBundle\Test\RestTestCase</code></td>
   </tr>
 </table>
+
+You SHOULD look at the [CoreBundle](https://github.com/libgraviton/graviton/tree/develop/src/Graviton/CoreBundle) to see some examples of this in action.
 
 ### Graviphoton
