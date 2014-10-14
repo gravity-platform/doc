@@ -115,6 +115,14 @@ Each service in graviton-2 SHALL consist of the following files. The follwing ex
     <td>serializer config, defines how data is serialized and deserialized to the client</td>
   </tr>
   <tr>
+    <td><code>src/Graviton/CoreBundle//Resources/config/services.xml</code></td>
+    <td><abbr title="Dependency Injection Container">DIC</abbr> configuration, define services for classes needed by the service</td>
+  </tr>
+  <tr>
+    <td><code>src/Graviton/CoreBundle//Resources/config/validation.xml</code></td>
+    <td>Validation constraints for service data</td>
+  </tr>
+  <tr>
     <td><code>src/Graviton/CoreBundle/Tests/Controller/AppControllerTest.php</code></td>
     <td>service tests, e2e tests that make later refactoring possible</td>
   </tr>
