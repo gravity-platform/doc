@@ -67,7 +67,11 @@ before they MAY be compiled into a deliverable using tools from npm.
 
 ##### Generating a Service
 
-TODO: show how to use the generator
+TODO: document how to use the generator
+
+````
+php app/console graviton:generate:resource --entity=GravitonFooBundle:Bar --format=xml --fields="name:string" --with-repository --no-interaction
+````
 
 ##### Service Anatomy
 
