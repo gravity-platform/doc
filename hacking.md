@@ -4,7 +4,7 @@ layout: default
 ---
 # How to Hack the Gravity-Platform
 
-This document show how to hack the gravity-plattform in a most effectiv fashion.
+This document show how to hack the gravity-platform in a most effectiv fashion.
 
 > The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 > "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in
@@ -15,7 +15,7 @@ guidelines given.
 
 ## Code Repositories
 
-The gravity-plattform SHALL be hosted on the following github organisations.
+The gravity-platform SHALL be hosted on the following github organisations.
 
 - [libgraviton](https://github.com/libgraviton)
 - [graviphoton](https://github.com/graviphoton)
