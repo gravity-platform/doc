@@ -60,6 +60,37 @@ sudo port install npm
 sudo port install git
 ````
 
+## Debian-based distribution environment
+
+If you want to use a *real* operating system (meaning, something unlike OSX or Windows *g), it's easier on a system like Ubuntu ;-)
+
+Issue the following command as root; change `aptitude` with `apt-get` if it's not installed..
+
+```bash
+aptitude install curl git php5-cli php-pear npm
+aptitude install php5-dev php5-json php5-intl php5-curl
+pecl install xdebug
+pecl install mongo
+```
+
+Create a file `/etc/php5/mods-available/graviton2.ini` with the following content:
+
+```ini
+zend_extension=xdebug.so
+extension=mongo.so
+zend.detect_unicode=off
+date.timezone="Europe/Zurich"
+short_open_tag=off
+magic_quotes_gpc=off
+xdebug.max_nesting_level=250
+```
+
+Now, enable this config on all SAPIs:
+
+```bash
+php5enmod graviton2
+```
+
 ## Gravity-Platform Installation
 
 This is the (currently defunct) all in one installation. Please refer to graviton
