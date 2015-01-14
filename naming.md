@@ -146,7 +146,9 @@ This should look like this:
 ````javascript
 {
   "contactType": {
-    externalId: 33,
+    id: "objects-3",
+    group: "objects",
+    number: 3,
     text: {
       "en": "Telephone",
       "de": "Telefon"
