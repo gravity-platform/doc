@@ -152,6 +152,8 @@ This should look like this:
 {
   "recordType": {
     id: "LP"
+    group: "objects",
+    number: 3,
     text: {
       "en": "Long Play",
       "de": "Langspielplatte"
