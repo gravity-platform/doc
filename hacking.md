@@ -50,8 +50,7 @@ SHOULD always point to the next MINOR version and be postfixed with ``-dev``.
 The gravity-platform makes heavy use of multiple package repositories. The repositories being used
 MUST be detailed in this guide.
 
-The PHP package archive [packagist](https://packagist.org/) SHALL be used for code in the libgraviton
-organisation.
+The PHP package archive [packagist](https://packagist.org/) SHALL be used for all PHP code.
 
 Node packaged modules [npm](https://npmjs.org/) SHOULD only be used during the build phase of JavaScript based
 projects.
