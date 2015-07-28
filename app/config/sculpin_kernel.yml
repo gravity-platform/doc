@@ -1,0 +1,4 @@
+sculpin_content_types:
+    releases:
+        type: path
+        permalink: releasenote/:title/
