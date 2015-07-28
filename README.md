@@ -1,4 +1,4 @@
-Sculpin based Releasenotes for GRV
+Sculpin based User-Documentation for Graviton
 ==================================
 
 Powered by [Sculpin](http://sculpin.io). =)
@@ -6,12 +6,11 @@ Powered by [Sculpin](http://sculpin.io). =)
 Features
 --------
 
-Sculpin based Releasenotes.
+Sculpin based Documentation.
 
  * Very minimal comstrap based theme.
- * Releasenotes in `/source/_releases`.
- * An about page at `/about`.
- * An index page at `/`. It displays all releases and paginates them.
+ * Markdowns for all pages at '/'
+ * An index page at `/`. It hasn't any content yet
 
 Build
 -----
