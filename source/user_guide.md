@@ -4,27 +4,27 @@ layout: default
 ---
 # User Guide
 
-This is the main documentation site for the graviton-platform. The platform consists of the following projects registered as organisations on github.
+This is a user guide for the service api's from graviton.
 
+### /file api
+
+
+
+#### post a file to the  collection
+1. create a simple textfile
+````bash
+echo "Hallo Graviton" > test.txt
 ````
-+-------------------------------------+
-|                                     |
-|          gravity-plattform          |
-|                                     |
-|  +------------+  +---------------+  |
-|  |            |  |               |  |
-|  |  graviton  |  |  graviphoton  |  |
-|  |            |  |               |  |
-|  +------------+  +---------------+  |
-|                                     |
-+-------------------------------------+
+2. curl request (POST) to create the file
+````bash
+curl -H "Content-Type: text/plain" -X POST -T'{test.txt}' http://localhost:8000/file
 ````
+#### get the content of the file
 
-- [graviton](https://github.com/libgraviton) REST server (hosted under libgraviton for historical reasons)
-- [graviphoton](https://github.com/graviphoton) JavaScript based user interface
-- [gravity-plattform](https://github.com/gravity-platform) platform for developing and running graviton and graviphoton
+````bash
+curl http://127.0.0.1:8000/file/55bb584a08420b5f288b457c
+````
+###### returns 'Hallo Graviton'
 
-Next, you might head over to the [Installation Guide](/doc/install.html) to get started. The
-[Developer Guide](/doc/hacking.html) is also an important resource.
 
-Please note that gravity-plattform is still very unstable.
+
