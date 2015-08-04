@@ -72,20 +72,7 @@
 </div>
 <div class="row"></div>
 <div class="col-sm-4 col-lg-2 sc-navbar-vert">
-    <nav>
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{ site.url }}/gravity_platform_docs">Graviton-Platform Documentation</a>
-            </li>
-            <li><a href="{{ site.url }}/backend_frontend_protocol">Backend-Frontend Protocol Spec</a></li>
-            <li><a href="{{ site.url }}/developer_guide">Developer Guide</a></li>
-            <li><a href="{{ site.url }}/i18n">Graviton I189</a></li>
-            <li><a href="{{ site.url }}/installation_guide">Installation Guide</a></li>
-            <li><a href="{{ site.url }}/naming_guide">Naming Guide</a></li>
-            <li><a href="{{ site.url }}/user_guide">User Guide</a></li>
-
-        </ul>
-    </nav>
-
+    {% include 'nav_vert.html.twig' %}
 </div>
 <div class="col-sm-8 col-lg-10 sc-main-content">
     <div class="span8">

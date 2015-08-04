@@ -1,0 +1,7 @@
+<nav>
+  <ul class="nav nav-pills nav-stacked">
+{% for item in page.menu %}
+    <li><a href="/{{ item.slug }}">{{ item.title }}</a></li>
+{% endfor %}
+  </ul>
+</nav>
