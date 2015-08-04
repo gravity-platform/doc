@@ -9,8 +9,9 @@ Features
 Sculpin based Documentation.
 
  * Very minimal comstrap based theme.
- * All Markdown``source`` gets build into nice looking pages.
- * An (empty) index page at `/`.
+ * Utilizes sculpin-pages-bundle to build our documentation from content in ``source/_pages``.
+ * Split navigation (top and left) that allows us to keep documentation concerns somewhat separate.
+ * Contains high-level API docs, some guides and ops info.
 
 Build
 -----
