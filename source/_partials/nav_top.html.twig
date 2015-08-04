@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/doc" class="navbar-brand">
+                <img src="http://cdn.nova.scapp.io/img/sc_logo.png" alt="swisscom">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+{% for item in page.menu %}
+{% if item.slug != 'doc' %}
+                <li><a href="/{{ item.slug }}">{{ item.title }}</a></li>
+{% endif %}
+{% endfor %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" target="_top">About</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

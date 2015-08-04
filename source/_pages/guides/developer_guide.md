@@ -1,6 +1,7 @@
 ---
 title: Developer Guide
 layout: default
+top_nav: guides
 ---
 # How to Hack the Gravity-Platform
 

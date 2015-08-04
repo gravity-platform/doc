@@ -1,5 +1,5 @@
 ---
-title: Gravity-Platform Documentation
+title: Doc
 layout: default
 ---
 # Gravity-Platform Documentation

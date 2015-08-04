@@ -1,7 +1,11 @@
 <nav>
   <ul class="nav nav-pills nav-stacked">
-{% for item in page.menu %}
+{% for topitem in page.menu %}
+{% if topitem.nav_name == page.top_nav %}
+{% for item in topitem.items %}
     <li><a href="/{{ item.slug }}">{{ item.title }}</a></li>
+{% endfor %}
+{% endif %}
 {% endfor %}
   </ul>
 </nav>

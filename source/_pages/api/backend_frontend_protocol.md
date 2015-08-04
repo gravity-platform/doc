@@ -1,6 +1,7 @@
 ---
-title: Backend - Frontend Protocol Spec
+title: Discovery and Anatomy
 layout: default
+top_nav: api
 ---
 # Backend - Frontend Protocol
 

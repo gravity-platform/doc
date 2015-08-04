@@ -1,6 +1,7 @@
 ---
 title: Naming Guide
 layout: default
+top_nav: guides
 ---
 
 # Naming & Structure Guide
