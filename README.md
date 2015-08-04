@@ -9,13 +9,13 @@ Features
 Sculpin based Documentation.
 
  * Very minimal comstrap based theme.
- * Markdowns for all pages at '/'
- * An index page at `/`. It hasn't any content yet
+ * All Markdown``source`` gets build into nice looking pages.
+ * An (empty) index page at `/`.
 
 Build
 -----
 
-### It You Use Composer
+### If You Use Composer
 
     composer install
     vendor/bin/sculpin generate --watch --server
