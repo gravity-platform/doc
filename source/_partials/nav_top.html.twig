@@ -12,23 +12,23 @@
         </button>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
-{% for item in page.menu %}
-{% if item.slug != 'doc' %}
-                <li>
-                    <a href="/{{ item.slug }}">
-                        {% if item.slug == "api" %}
-                        <span class="picto-api" ></span>
-                        {% elseif item.slug == "guides" %}
-                        <span class="picto-book" ></span>
-                        {% elseif item.slug == "ops" %}
-                        <span class="picto-settings" ></span>
-                        {% else %}
-                            <span class="picto-{{ item.slug }}" ></span>
-                        {% endif %}
-                        {{ item.title }}</a>
-                </li>
-{% endif %}
-{% endfor %}
+                {% for item in page.menu %}
+                {% if item.slug != 'doc' %}
+                                <li>
+                                    <a href="/{{ item.slug }}">
+                                        {% if item.slug == "api" %}
+                                        <span class="picto-api" ></span>
+                                        {% elseif item.slug == "guides" %}
+                                        <span class="picto-book" ></span>
+                                        {% elseif item.slug == "ops" %}
+                                        <span class="picto-settings" ></span>
+                                        {% else %}
+                                            <span class="picto-{{ item.slug }}" ></span>
+                                        {% endif %}
+                                        {{ item.title }}</a>
+                                </li>
+                {% endif %}
+                {% endfor %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="" target="_top"><span class="picto-info"></span>About</a></li>
