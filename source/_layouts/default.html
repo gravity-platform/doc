@@ -33,11 +33,11 @@
     {% include 'nav_top.html.twig' %}
     <div class="container-fluid">
         <div class="row">
+            <div class="col-sm-2 col-lg-1 sc-navbar-vert">
             {% if page.slug != 'doc' %}
-                <div class="col-sm-2 col-lg-1 sc-navbar-vert">
                     {% include 'nav_vert.html.twig' %}
-                </div>
             {% endif %}
+            </div>
             <div class="col-sm-10 col-lg-11 sc-main-content">
                 {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
             </div>
