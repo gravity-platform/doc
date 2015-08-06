@@ -1,11 +1,13 @@
-<nav>
-  <ul class="nav nav-pills nav-stacked">
+<nav class="list-group affix">
+  <div class="panel-body">
 {% for topitem in page.menu %}
 {% if topitem.nav_name == page.top_nav %}
 {% for item in topitem.items %}
-    <li><a href="/{{ item.slug }}">{{ item.title }}</a></li>
+    <a class="list-group-item {% if page.slug == item.slug %}
+    active
+    {% endif %}" href="/{{ item.slug }}">{{ item.title }}</a>
 {% endfor %}
 {% endif %}
 {% endfor %}
-  </ul>
+  </div>
 </nav>
