@@ -23,3 +23,7 @@ code {
     color: #015;
     background-color: #d9edf7
 }
+
+.sc-navbar-vert ol:first-child {
+        padding: 61px 0 0 0;
+}
