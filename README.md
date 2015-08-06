@@ -122,3 +122,6 @@ Add a pictogram name from [here](http://swisscom-bootstrap.nova.scapp.io/index.h
 `title: sampleTitle$pictoName`
 
 
+### Marking pages as outdated
+
+You can use ``outdated: true`` to mark pages in need of a refactor. This will then render a Warning banner on the top of the page.
