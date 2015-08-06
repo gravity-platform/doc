@@ -27,7 +27,11 @@ curl -v -X POST -H "Content-Type: text/plain" \
     -T'{test.txt}' https://graviton.nova.scapp.io/file
 ````
 
-Observe the ``Location`` header in the output from the ``POST`` request. It tells you where the file was stored.
+Observe the ``Location`` header in the output from the ``POST`` request. It tells you where the file was stored and has the following format:
+
+```
+Location: /file/55bb584a08420b5f288b457c
+```
 
 #### Retrieve file and metadata
 
@@ -44,8 +48,32 @@ Or get the accompanying metadata by requesting JSON data.
 curl -H "Accept: application/json" \
     https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
 ````
+#### Update a files metadata
 
-#### Update a file and/or metadata
+When updating files it is important to remember that you should always base your edits on the original data. 
+
+You need to specify a JSON MIME-type to update the files metadata.
+
+````bash
+curl -H "Accept: application/json" \
+    https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c > test.json
+    
+# Edit test.json in vim and add metadata.filename and some links
+
+curl -v -X PUT -H "Content-Type: application/json" \
+    -T'{test.json}' https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
+````
+
+If you try to edit any of the readonly data in the resource graviton will complain with an error and reject the updated data.
+
+The following fields are read only and get updated by graviton as needed.
+
+* ``metadata.createData``
+* ``metadata.modificationDate``
+* ``metadata.size``
+* ``metadata.mime``
+
+#### Update a files content
 
 To update a file you will need to send the corresponding MIME-type headers.
 
@@ -54,25 +82,38 @@ curl -v -X PUT -H "Content-Type: text/plain" \
     -T'{test.txt}' https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
 ````
 
-Similarly you need to specify a JSON MIME-type to update the files metadata.
+### Example data (annotated)
 
-````bash
-curl -H "Accept: application/json" \
-    https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c > test.json
+```js
+{
+    "id": "55bb584a08420b5f288b457c",
+    // array of links that may point to any other resource
+    "links": [
+        {
+            // URL of linked resource
+            "$ref": "https://graviton.nova.scapp.io/person/customer/123",
+            // link 'type', it is up to the clients to define the types they want to use
+            "type": "owner"
+        },
+        {
+            "$ref": "https://graviton.nova.scapp.io/core/module/123", 
+            "type": "module"
+        }
+    ], 
+    "metadata": {
+        // read only fields in metadata get managed by the server
+        // createData is such a field and gets set to the time of the initial upload
+        "createDate": "2015-08-06T10:51:20+0000",
+        // name for display purposes, may be updated by user
+        "filename": "fileName.txt",
+        // readonly and inferred from the uploaded file
+        "mime": "text/plain",
+        // read only and set when a file is replaced
+        "modificationDate": "2015-08-06T10:51:20+0000",
+        // read only and inferred from the upload
+        "size": 12
+    }
+}
+```
 
-curl -v -X PUT -H "Content-Type: application/json" \
-    -T'{test.json}' https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
-````
-
-### Functionality
-
-The file service has some bits and pieces that need a more through explanantion.
-
-#### Metadata
-
-Some of the metadata in ``metadata`` may be updated while other parts of the metadata are readonly.
-
-#### Links
-
-The links field may be used to link documents with various resources. Unsless otherweise possible relationships with files should be created exclusivly using this field.
-
+Please reference the [schema](https://graviton.nova.scapp.io/schema/file/item) for more details on the data format of the file service.
