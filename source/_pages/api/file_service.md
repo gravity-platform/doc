@@ -4,7 +4,7 @@ layout: default
 top_nav: api
 ---
 
-## File service
+# File service
 
 The file service in graviton is reachable at the ``/file`` endpoint. It was developed as a catch-all solution to clients file storage needs.
 
@@ -14,7 +14,7 @@ Clients may use the service to store assets like images or also to store content
 
 Since the file service operates on files of all kinds of MIME-types and also stores metadata on one single endpoint it has a larger than usual surface.
 
-### Usage
+## Usage
 
 #### Upload a file
 
@@ -33,7 +33,7 @@ Observe the ``Location`` header in the output from the ``POST`` request. It tell
 Location: /file/55bb584a08420b5f288b457c
 ```
 
-#### Retrieve file and metadata
+### Retrieve file and metadata
 
 Get the files contents by issuing a GET request with the corresponding MIME-type.
 
@@ -48,7 +48,7 @@ Or get the accompanying metadata by requesting JSON data.
 curl -H "Accept: application/json" \
     https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
 ````
-#### Update a files metadata
+### Update a files metadata
 
 When updating files it is important to remember that you should always base your edits on the original data. 
 
@@ -73,7 +73,7 @@ The following fields are read only and get updated by graviton as needed.
 * ``metadata.size``
 * ``metadata.mime``
 
-#### Update a files content
+### Update a files content
 
 To update a file you will need to send the corresponding MIME-type headers.
 
@@ -82,7 +82,7 @@ curl -v -X PUT -H "Content-Type: text/plain" \
     -T'{test.txt}' https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
 ````
 
-### Example data (annotated)
+## Example data (annotated)
 
 ```js
 {
