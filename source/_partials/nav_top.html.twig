@@ -15,7 +15,7 @@
                 {% for item in page.menu %}
                 {% if item.slug != 'doc' %}
                     <li
-                    {% if page.slug == item.slug %}
+                    {% if page.slug == item.slug or page.top_nav == item.slug%}
                             class="active"
                     {% endif %}
                     >
