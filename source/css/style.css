@@ -18,3 +18,8 @@ body {
 .panel-body {
     padding: 0px;
 }
+
+code {
+    color: #015;
+    background-color: #d9edf7
+}
