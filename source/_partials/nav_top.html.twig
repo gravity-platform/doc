@@ -16,9 +16,9 @@
                 {% if item.slug != 'doc' %}
                                 <li>
                                     <a href="/{{ item.slug }}">
-                                        {% set foo = item.title | split('$') %}
-                                            <span class="{{ foo[1] }}" ></span>
-                                        {{ foo[0] }}</a>
+                                        {% set navUnit = item.title | split('$') %}
+                                            <span class="{{ navUnit[1] }}" ></span>
+                                        {{ navUnit[0] }}</a>
                                 </li>
                 {% endif %}
                 {% endfor %}
