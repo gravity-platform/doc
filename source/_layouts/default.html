@@ -32,16 +32,14 @@
 <body>
     {% include 'nav_top.html.twig' %}
     <div class="container-fluid">
-        <div class="row"></div>
+        <div class="row">
             {% if page.slug != 'doc' %}
                 <div class="col-sm-2 col-lg-1 sc-navbar-vert">
                     {% include 'nav_vert.html.twig' %}
                 </div>
             {% endif %}
             <div class="col-sm-10 col-lg-11 sc-main-content">
-                <div class="span8">
-                    {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
-                </div>
+                {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
             </div>
         </div>
     </div>
