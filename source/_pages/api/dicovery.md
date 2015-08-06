@@ -2,6 +2,7 @@
 title: Discovery
 layout: default
 top_nav: api
+outdated: true
 ---
 # Service Discovery
 
