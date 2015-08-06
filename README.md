@@ -112,4 +112,13 @@ These files are suitable to be transferred directly to a production host. For ex
 If you want to make sure that rsync deletes files that you deleted locally on the on the remote too, add the `--delete` option to the rsync command:
 
     rsync -avze 'ssh -p 999' --delete output_prod/ user@yoursculpinsite.com:public_html
+    
+Additional Info
+---------------
+
+### Use of pictograms
+Add a pictogram name from [here](http://swisscom-bootstrap.nova.scapp.io/index.html) to the title:
+
+`title: sampleTitle$pictoName`
+
 

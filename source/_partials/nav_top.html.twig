@@ -16,16 +16,9 @@
                 {% if item.slug != 'doc' %}
                                 <li>
                                     <a href="/{{ item.slug }}">
-                                        {% if item.slug == "api" %}
-                                        <span class="picto-api" ></span>
-                                        {% elseif item.slug == "guides" %}
-                                        <span class="picto-book" ></span>
-                                        {% elseif item.slug == "ops" %}
-                                        <span class="picto-settings" ></span>
-                                        {% else %}
-                                            <span class="picto-{{ item.slug }}" ></span>
-                                        {% endif %}
-                                        {{ item.title }}</a>
+                                        {% set foo = item.title | split('$') %}
+                                            <span class="{{ foo[1] }}" ></span>
+                                        {{ foo[0] }}</a>
                                 </li>
                 {% endif %}
                 {% endfor %}
