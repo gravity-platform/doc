@@ -16,7 +16,7 @@ Since the file service operates on files of all kinds of MIME-types and also sto
 
 ## Usage
 
-#### Upload a file
+### Upload a file
 
 Create and upload a simple text file as follows.
 
@@ -48,7 +48,7 @@ Or get the accompanying metadata by requesting JSON data.
 curl -H "Accept: application/json" \
     https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
 ````
-### Update a files metadata
+### Update file metadata
 
 When updating files it is important to remember that you should always base your edits on the original data. 
 
@@ -64,7 +64,7 @@ curl -v -X PUT -H "Content-Type: application/json" \
     -T'{test.json}' https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
 ````
 
-If you try to edit any of the readonly data in the resource graviton will complain with an error and reject the updated data.
+If you try to edit any of the read only data in the resource graviton will complain with an error and reject the updated data.
 
 The following fields are read only and get updated by graviton as needed.
 
@@ -73,7 +73,7 @@ The following fields are read only and get updated by graviton as needed.
 * ``metadata.size``
 * ``metadata.mime``
 
-### Update a files content
+### Update file content
 
 To update a file you will need to send the corresponding MIME-type headers.
 
@@ -106,7 +106,7 @@ curl -v -X PUT -H "Content-Type: text/plain" \
         "createDate": "2015-08-06T10:51:20+0000",
         // name for display purposes, may be updated by user
         "filename": "fileName.txt",
-        // readonly and inferred from the uploaded file
+        // read only and inferred from the uploaded file
         "mime": "text/plain",
         // read only and set when a file is replaced
         "modificationDate": "2015-08-06T10:51:20+0000",
