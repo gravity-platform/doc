@@ -37,9 +37,11 @@
     {% include 'nav_top.html.twig' %}
 </div>
 <div class="row"></div>
+{% if page.slug != 'doc' %}
 <div class="col-sm-4 col-lg-2 sc-navbar-vert">
     {% include 'nav_vert.html.twig' %}
 </div>
+{% endif %}
 <div class="col-sm-8 col-lg-10 sc-main-content">
     <div class="span8">
         {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
