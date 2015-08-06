@@ -1,5 +1,5 @@
 ---
-title: Installation Guide
+title: Installation
 layout: default
 top_nav: ops
 ---

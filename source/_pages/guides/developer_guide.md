@@ -1,5 +1,5 @@
 ---
-title: Developer Guide
+title: Developer
 layout: default
 top_nav: guides
 ---
