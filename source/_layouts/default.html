@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}{{ page.title }}{% endblock %} &mdash; {{ site.title }} &mdash; {{ site.subtitle }}</title>
+    <title>{% block title %}{{ page.title | split('$')[0] }}{% endblock %} &mdash; {{ site.title }} &mdash; {{ site.subtitle }}</title>
     <meta charset="utf-8">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link rel="icon" type="image/png" href="../images/favicon.ico">
+    <link rel="icon" type="image/png" href="{{ site.url }}/images/favicon.ico">
     <link rel="apple-touch-startup-image" href="{{ site.url }}/images/jackson/2048x2048.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
