@@ -1,0 +1,13 @@
+<nav role="navigation">
+  <ol class="nav nav-pills nav-stacked" type="a">
+{% for topitem in page.menu %}
+{% if topitem.nav_name == page.top_nav %}
+{% for item in topitem.items %}
+    <li {% if page.slug == item.slug %}class="active"{% endif %}>
+        <a href="/{{ item.slug }}">{{ item.title }}</a>
+    </li>
+{% endfor %}
+{% endif %}
+{% endfor %}
+  </ol>
+</nav>

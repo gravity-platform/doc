@@ -1,6 +1,8 @@
 ---
-title: Developer Guide
+title: Developer
 layout: default
+top_nav: guides
+outdated: true
 ---
 # How to Hack the Gravity-Platform
 
@@ -30,7 +32,7 @@ Further reading on ``git-flow`` may be found on the excellent
 
 You MUST use the ``git-flow`` model on the aforementioned github organisations.
 Is is RECOMMENDED that you also use ``git-flow`` on internal applications based on the gravity-platform.
-You MUST use the default branch prefixes given by ``git-flow`` except for the version tag prefix 
+You MUST use the default branch prefixes given by ``git-flow`` except for the version tag prefix
 which SHALL be ``v``. As an exception to the stated rule, the gravity-platform/doc git repository
 MUST use the ``gh-pages`` branch as default.
 

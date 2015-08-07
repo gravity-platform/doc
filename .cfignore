@@ -1,0 +1,6 @@
+.git/
+app/
+composer.*
+output_dev/
+source/
+vendor/
