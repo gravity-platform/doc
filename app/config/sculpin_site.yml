@@ -1,9 +1,5 @@
 # The contents of this file are parsed and made available as
 # via `site.*`. So for example, {{ site.title }} can be used
 # in a template to get the contents of the `title` key.
-title: eVoja GRV Releasenotes
-subtitle: Releasenotes on the newest development in your eVoja packages. Available up to to the minute only on evoja-grv-releasenotes.
-
-# Insert your disqus shortname
-#disqus:
-#    shortname:
+title: GRV Documentation
+subtitle: This is the offical GRV Documentation
