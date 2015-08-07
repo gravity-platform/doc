@@ -32,11 +32,12 @@
     {% include 'nav_top.html.twig' %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 col-lg-1 sc-navbar-vert">
             {% if page.slug != 'doc' %}
+            <div class="col-sm-2 col-lg-1 sc-navbar-vert">
+
                     {% include 'nav_vert.html.twig' %}
-            {% endif %}
             </div>
+            {% endif %}
             <div class="col-sm-10 col-lg-11 sc-main-content">
                 {% block content_wrapper %}
                 {% if page.outdated == '1' %}{% include 'outdated.html.twig' %}{% endif %}
@@ -58,6 +59,6 @@
     <script>window.jQuery || document.write('<script src="{{ site.url }}/components/jquery/jquery.min.js"><\/script>')</script>
     <script src="http://cdn.nova.scapp.io/js/comstrap.min.js"></script>
     <script src="{{ site.url }}/components/highlightjs/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>hljs.initHighlightingOnLoad(1);</script>
 q</body>
 </html>
