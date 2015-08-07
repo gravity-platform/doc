@@ -1,6 +1,8 @@
 ---
-title: Installation Guide
+title: Installation
 layout: default
+top_nav: ops
+outdated: true
 ---
 # How to Install the Gravity-Platform
 
