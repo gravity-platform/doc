@@ -1,8 +1,8 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="/doc" class="navbar-brand">
-                <img src="http://cdn.nova.scapp.io/img/sc_logo.png" alt="swisscom">
+                <img src="http://cdn.nova.scapp.io/img/sc_logo.png" alt="">
             </a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
                 <span class="icon-bar"></span>
@@ -11,11 +11,11 @@
             </button>
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
-            <ul class="nav navbar-nav">
+            <ol class="nav navbar-nav">
                 {% for item in page.menu %}
                 {% if item.slug != 'doc' %}
                     <li
-                    {% if page.slug == item.slug %}
+                    {% if page.slug == item.slug or page.top_nav == item.slug%}
                             class="active"
                     {% endif %}
                     >
@@ -27,17 +27,7 @@
                     </li>
                 {% endif %}
                 {% endfor %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="{% if page.slug == "about" %}
-                            active
-                        {% endif %}
-                        ">
-                    <a href="" target="_top"><span class="picto-info">
-                        </span>About
-                    </a>
-                </li>
-            </ul>
+            </ol>
         </div>
     </div>
 </nav>

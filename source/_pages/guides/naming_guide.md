@@ -1,5 +1,5 @@
 ---
-title: Naming Guide
+title: Naming
 layout: default
 top_nav: guides
 ---

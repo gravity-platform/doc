@@ -1,4 +1,0 @@
----
-applications:
-- name: grv-doc
-  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
