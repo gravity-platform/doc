@@ -1,5 +1,5 @@
 ---
-title: File
+title: RQL
 layout: default
 top_nav: api
 ---
@@ -23,7 +23,15 @@ Please see the documentation linked in the Appendix for more details on RQL.
 ## Special cases
 
 ### Limit
-Contrary to the RQL-Specification, the limit-function in Graviton works as ``limit(<nrItems>[,<start>])`` instead of ``limit(<start>,<number>))``.
+
+Due to the fact the [the specs](https://doc.apsstandard.org/2.1/spec/rql/) and the [reference implementation](https://github.com/persvr/rql) differ slightly we had to choose a variant.
+
+Our implementation now follows the following call syntax:
+
+``limit(start,count)`` - Return the given number of objects from the start position.
+
+Basically we are doing what the reference implementation documents but removing
+the ``maxCount`` arg.
 
 
 ### Encoding of RQL in Link Headers
