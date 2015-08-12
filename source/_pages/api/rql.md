@@ -22,6 +22,10 @@ Please see the documentation linked in the Appendix for more details on RQL.
 
 ## Special cases
 
+### Limit
+Contrary to the RQL-Specification, the limit-function in Graviton works as ``limit(<nrItems>[,<start>])`` instead of ``limit(<start>,<number>))``.
+
+
 ### Encoding of RQL in Link Headers
 
 In an attempt to make ``Link`` headers parseable we are encoding parts of the actual header specially. Due to the fact that lots of clients take the header value and split it into individual chunks by simply splitting it at each ``,`` char we are encoding commas as ``%2C`` when they occur in an actual link.
