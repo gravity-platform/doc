@@ -33,7 +33,6 @@ Our implementation now follows the following call syntax:
 Basically we are doing what the reference implementation documents but removing
 the ``maxCount`` arg.
 
-
 ### Encoding of RQL in Link Headers
 
 In an attempt to make ``Link`` headers parseable we are encoding parts of the actual header specially. Due to the fact that lots of clients take the header value and split it into individual chunks by simply splitting it at each ``,`` char we are encoding commas as ``%2C`` when they occur in an actual link.
@@ -55,3 +54,4 @@ $links = array_map(
 * [Original JS Implementation](https://github.com/persvr/rql)
 * [PHP Parser](https://github.com/xiag-ag/rql-parser)
 * [RQL Spec](https://doc.apsstandard.org/2.1/spec/rql/)
+* [Encoding Rules](https://github.com/xiag-ag/rql-parser#encoding-rules)
