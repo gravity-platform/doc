@@ -33,6 +33,12 @@ Our implementation now follows the following call syntax:
 Basically we are doing what the reference implementation documents but removing
 the ``maxCount`` arg.
 
+### String encoding in parameters
+
+Remember that strings passed in function parameters must be encoded in a special fashion in order to make sure that they don't escape the ``function()``.
+
+Please refer to the [parser encoding rules](https://github.com/xiag-ag/rql-parser#encoding-rules) for further information.
+
 ### Encoding of RQL in Link Headers
 
 In an attempt to make ``Link`` headers parseable we are encoding parts of the actual header specially. Due to the fact that lots of clients take the header value and split it into individual chunks by simply splitting it at each ``,`` char we are encoding commas as ``%2C`` when they occur in an actual link.
