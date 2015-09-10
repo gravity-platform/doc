@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/doc" class="navbar-brand">
+                <img src="//cdn.nova.scapp.io/img/sc_logo.png" alt="">
+            </a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ol class="nav navbar-nav">
+                {% for item in page.menu %}
+                {% if item.slug != 'doc' %}
+                    <li
+                    {% if page.slug == item.slug or page.top_nav == item.slug%}
+                            class="active"
+                    {% endif %}
+                    >
+                        <a href="/{{ item.slug }}">
+                            {% set navUnit = item.title | split('$') %}
+                                <span class="{{ navUnit[1] }}" ></span>
+                            {{ navUnit[0] }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</nav>
