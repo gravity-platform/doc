@@ -4,13 +4,13 @@ layout: default
 top_nav: api
 ---
 
-## Referencing Resources
+# Referencing Resources
 
 In graviton based servers documents may be linked using [JSON-Reference](https://json-spec.readthedocs.org/en/latest/reference.html). Currently only links targeting documents are supported.
 
 As per the specs, links are presented in a ``$ref`` attribute. Links in graviton services contain a fully qualified URL.
 
-### ``$ref`` in Schemas
+## ``$ref`` in Schemas
 
 Given the following document that has a link to another document on the gravtion server.
 
@@ -46,7 +46,7 @@ In such cases the ``x-collection`` attribute exposes a list of valid collections
 
 The ``x-collection`` attribute also supports containing a value of ``*``. The wildcard value specifies that any valid graviton service may be used as a link target.
 
-### Querying ``$ref`` Entries
+## Querying ``$ref`` Entries
 
 While querying ``$ref`` entries, the usual [RQL encoding rules](https://github.com/xiag-ag/rql-parser#encoding-rules) have to be followed.
 
@@ -62,7 +62,7 @@ To fetch a list of entries to populate a select box you might combine this with 
 https://graviton.nova.scapp.io/service/?%24ref=https%3A%2F%2Fgraviton.nova.scapp.io%2Fcore%2Fapp%2Ftest&select(id,name)
 ```
 
-#### Special Cases
+### Special Cases
 
 Querying nested objects may use the ``.`` or the ``..`` operator. This depends on whether you are searching inside an array or an object.
 
