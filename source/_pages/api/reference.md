@@ -25,7 +25,7 @@ The following schema might be generated.
 ```json
 {
   "title": "Example Resource",
-  "type": "object"
+  "type": "object",
   "properties": {
     "$ref": {
       "title": "Reference",
