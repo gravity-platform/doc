@@ -40,7 +40,7 @@ The following schema might be generated.
 }
 ```
 
-The ``format`` key with a value of ``extref`` allows clients to recognize tha a link points to a graviton service.
+The ``format`` key with a value of ``extref`` allows clients to recognize that a link points to a graviton service.
 
 In such cases the ``x-collection`` attribute exposes a list of valid collections that may be used in links. In the above example the values from ``https://graviton.nova.scapp.io/core/app`` could be used to populate a list of possible links by a client.
 
