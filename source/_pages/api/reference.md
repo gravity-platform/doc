@@ -12,7 +12,7 @@ As per the specs, links are presented in a ``$ref`` attribute. Links in graviton
 
 ## ``$ref`` in Schemas
 
-Given the following document that has a link to another document on the gravtion server.
+Given the following document that has a link to another document on the graviton server.
 
 ```json
 {
