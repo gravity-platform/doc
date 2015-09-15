@@ -6,10 +6,10 @@ top_nav: api
 
 # Events
 
-Graviton supports an event based subscription feature. With this, it is possible for `worker agents` so subscribe
+Graviton supports an event based subscription feature. With this, it is possible for `worker agents` to subscribe
 on certain events that happen. At the moment, this is limited to data changing events (`PUT`, `POST`, `DELETE`). 
 
-This allows a `worker` to be notified on any data changes that happen - a worker can flexibly subscribe on whatever it is
+This allows a `worker` to be notified on any data changes that happen - a worker can flexibly subscribe to whatever it is
 interested.
 
 If a `worker` is subscribed on a certain event, an `EventStatus` resource is created that allows a `worker` to update
@@ -38,7 +38,7 @@ The advantages on using this approach:
 
 The typical workflow for a worker is as follows:
 
-* The worker registers itself on the service `/event/worker/`, `PUT`ing his ID and subscription(s)
+* The worker registers itself on the service `/event/worker/` by `PUT`ing his ID and subscription(s)
 * The worker connects to the message queue (the same as Graviton), binds to the topic exchange `graviton`.
 * The worker waits for incoming messages indefinitely.
 * Now, whenever a data change event happens to which the worker is subscribed, it will receive a message on the queue.
@@ -50,7 +50,7 @@ The typical workflow for a worker is as follows:
 <div class="alert alert-info" markdown="1">
 **Update your status immediately!**<br />
 It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
-as fast as possible. First off, to let users know that the worker picked it up, but also to make it impossible for another worker
+as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another worker
 to pick up the work.
 </div>
 
@@ -61,11 +61,11 @@ To enable this functionality, Graviton provides two services for Event handling:
 
 ### EventWorker: Registering your worker
 
-Graviton needs to be aware which workers are interested in which events. First of, a `EventStatus` will only be created on the users' 
+Graviton needs to be aware which workers are interested in which events. An `EventStatus` will only be created on the users' 
 data changing request if a worker is registered and subscribed to that specific event. Those registered worker IDs will then be included
 in the `status` array property of the `EventStatus`, allowing the worker to set its status.
 
-We register our worker with a simple `PUT` request to the `/event/worker/` collection. `curl` example:
+A worker must register itself with a simple `PUT` request to the `/event/worker/` collection. `curl` example:
 
 ```bash
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '
