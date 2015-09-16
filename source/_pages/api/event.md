@@ -48,7 +48,8 @@ The typical workflow for a worker is as follows:
 * The worker sets his status to `done` (again, by `PUT`ing a new version of the `EventStatus` object).
 
 <div class="alert alert-info" markdown="1">
-**Update your status immediately!**<br />
+**Update your status immediately!**
+
 It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
 as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another worker
 to pick up the work.
@@ -85,7 +86,8 @@ As you can see, the structure you PUT consists of the following:
 * `subscription`<br />An array of objects. In each object you have an `event` property with the event name you want to subscribe to. You can subscribe to multiple events.
 
 <div class="alert alert-info" markdown="1">
-**Pick your worker ID wisely**<br>
+**Pick your worker ID wisely**
+
 Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
 choose it to generic. Also note that a worker ID should be a simple word, not containing any spaces. Graviton will issue an error if you have
 invalid characters in your worker ID.
@@ -125,7 +127,7 @@ Detailed explanation of this components:
 * `action`<br />This is a string identifying what action happened on that record. Possible values are `update` (for `PUT` requests), `create` (for `POST` request) and `delete` (for `DELETE` requests) 
 
 We recommend that you just open a connection to the queue, provoke a certain action (in `develop`) and observe the events, there you can see the event names.
-See section *Queue verbosity* below.
+See section *[Queue verbosity](#Queue_verbosity)* below.
 
 #### Event name levels
 
@@ -140,7 +142,8 @@ Note that this offers the possibility to select your scope by subscribing with m
 All those strings are valid subscription names in `/event/worker/`
 
 <div class="alert alert-info" markdown="1">
-**Narrow your scope**<br>
+**Narrow your scope**
+
 We urge you to **not** abuse this. It should be common sense to only subscribe to the specific events you need. So please
 choose your subscription keys as specific as possible!
 </div>
@@ -223,7 +226,8 @@ We call this object structure `QueueEvent`. Let's have a look at its properties:
 * `statusUrl`<br />The URL to the `EventStatus` resource created for this event. Update your worker status in this object.
 
 <div class="alert alert-info" markdown="1">
-**Routing keys**<br />
+**Routing keys**
+
 Understand that the Graviton event name (*document.core.app.update* in this example) corresponds with the RabbitMQ *routing key*.
 So if you bind to the topic exchange with, *document.core.app.\**, you will receive all events concerning `/core/app/`.
 </div>
