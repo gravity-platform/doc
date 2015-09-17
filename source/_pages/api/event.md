@@ -47,7 +47,7 @@ The typical workflow for a worker is as follows:
 * The worker does his work
 * The worker sets his status to `done` (again, by `PUT`ing a new version of the `EventStatus` object).
 
-<div class="alert alert-success" markdown="1">
+<div class="alert alert-info" markdown="1">
 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Update your status immediately!**
 
 It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
@@ -85,7 +85,7 @@ As you can see, the structure you PUT consists of the following:
 * `id`<br />This is the ID of your worker as you register it. Also not that this must be in the url you `PUT` to, so you `PUT` to `/event/worker/<workerId>`.
 * `subscription`<br />An array of objects. In each object you have an `event` property with the event name you want to subscribe to. You can subscribe to multiple events.
 
-<div class="alert alert-success" markdown="1">
+<div class="alert alert-info" markdown="1">
 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Pick your worker ID wisely**
 
 Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
@@ -153,7 +153,7 @@ Note that this offers the possibility to select your scope by subscribing with m
 
 All those strings are valid subscription names in `/event/worker/`
 
-<div class="alert alert-success" markdown="1">
+<div class="alert alert-info" markdown="1">
 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Narrow your scope**
 
 We urge you to **not** abuse this. It should be common sense to only subscribe to the specific events you need. So please
@@ -218,7 +218,7 @@ Graviton sends data of the content-type `application/json` to the queue. Dependi
 A typical message of Graviton would be like this:
 
 ```js
-{"event":"document.core.app.update","publicUrl":"http:\/\/localhost:9000\/core\/app\/admin","statusUrl":"http:\/\/localhost:9000\/event\/status\/e3118f1adc9e3f4382029e2cd8b3cf94"}
+{"event":"document.core.app.update","document":{"$ref":"http:\/\/localhost:8000\/core\/app\/admin"},"status":{"$ref":"http:\/\/localhost:8000\/event\/status\/c013cf7ba58e396f9966d95f5b4238d4"}}
 ```
 
 If you deserialize this, you will get a simple object:
@@ -226,18 +226,22 @@ If you deserialize this, you will get a simple object:
 ```js
 {
   "event": "document.core.app.update",
-  "publicUrl": "http://localhost:9000/core/app/admin",
-  "statusUrl": "http://localhost:9000/event/status/e3118f1adc9e3f4382029e2cd8b3cf94"
+  "document": {
+    "$ref": "http://localhost:8000/core/app/admin"
+  },
+  "status": {
+    "$ref": "http://localhost:8000/event/status/c013cf7ba58e396f9966d95f5b4238d4"
+  }  
 }
 ```
 
 We call this object structure `QueueEvent`. Let's have a look at its properties:
 
 * `event`<br />This is the event name that Graviton published. See the section *Finding the correct event names* how Graviton composes those. 
-* `publicUrl`<br />The public reachable URL to the resource that was affected by the change.
-* `statusUrl`<br />The URL to the `EventStatus` resource created for this event. Update your worker status in this object.
+* `document.$ref`<br />The public reachable URL to the document that was affected by the change.
+* `status.$ref`<br />The URL to the `EventStatus` resource created for this event. Update your worker status in this object.
 
-<div class="alert alert-success" markdown="1">
+<div class="alert alert-info" markdown="1">
 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Routing keys**
 
 Understand that the Graviton event name (*document.core.app.update* in this example) corresponds with the RabbitMQ *routing key*.
