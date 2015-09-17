@@ -6,10 +6,10 @@ top_nav: api
 
 # Events
 
-Graviton supports an event based subscription feature. With this, it is possible for `worker agents` so subscribe
+Graviton supports an event based subscription feature. With this, it is possible for `worker agents` to subscribe
 on certain events that happen. At the moment, this is limited to data changing events (`PUT`, `POST`, `DELETE`). 
 
-This allows a `worker` to be notified on any data changes that happen - a worker can flexibly subscribe on whatever it is
+This allows a `worker` to be notified on any data changes that happen - a worker can flexibly subscribe to whatever it is
 interested.
 
 If a `worker` is subscribed on a certain event, an `EventStatus` resource is created that allows a `worker` to update
@@ -38,7 +38,7 @@ The advantages on using this approach:
 
 The typical workflow for a worker is as follows:
 
-* The worker registers itself on the service `/event/worker/`, `PUT`ing his ID and subscription(s)
+* The worker registers itself on the service `/event/worker/` by `PUT`ing his ID and subscription(s)
 * The worker connects to the message queue (the same as Graviton), binds to the topic exchange `graviton`.
 * The worker waits for incoming messages indefinitely.
 * Now, whenever a data change event happens to which the worker is subscribed, it will receive a message on the queue.
@@ -48,9 +48,10 @@ The typical workflow for a worker is as follows:
 * The worker sets his status to `done` (again, by `PUT`ing a new version of the `EventStatus` object).
 
 <div class="alert alert-info" markdown="1">
-**Update your status immediately!**<br />
+**Update your status immediately!**
+
 It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
-as fast as possible. First off, to let users know that the worker picked it up, but also to make it impossible for another worker
+as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another worker
 to pick up the work.
 </div>
 
@@ -61,11 +62,11 @@ To enable this functionality, Graviton provides two services for Event handling:
 
 ### EventWorker: Registering your worker
 
-Graviton needs to be aware which workers are interested in which events. First of, a `EventStatus` will only be created on the users' 
+Graviton needs to be aware which workers are interested in which events. An `EventStatus` will only be created on the users' 
 data changing request if a worker is registered and subscribed to that specific event. Those registered worker IDs will then be included
 in the `status` array property of the `EventStatus`, allowing the worker to set its status.
 
-We register our worker with a simple `PUT` request to the `/event/worker/` collection. `curl` example:
+A worker must register itself with a simple `PUT` request to the `/event/worker/` collection. `curl` example:
 
 ```bash
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '
@@ -85,7 +86,8 @@ As you can see, the structure you PUT consists of the following:
 * `subscription`<br />An array of objects. In each object you have an `event` property with the event name you want to subscribe to. You can subscribe to multiple events.
 
 <div class="alert alert-info" markdown="1">
-**Pick your worker ID wisely**<br>
+**Pick your worker ID wisely**
+
 Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
 choose it to generic. Also note that a worker ID should be a simple word, not containing any spaces. Graviton will issue an error if you have
 invalid characters in your worker ID.
@@ -125,7 +127,7 @@ Detailed explanation of this components:
 * `action`<br />This is a string identifying what action happened on that record. Possible values are `update` (for `PUT` requests), `create` (for `POST` request) and `delete` (for `DELETE` requests) 
 
 We recommend that you just open a connection to the queue, provoke a certain action (in `develop`) and observe the events, there you can see the event names.
-See section *Queue verbosity* below.
+See section *[Queue verbosity](#Queue_verbosity)* below.
 
 #### Event name levels
 
@@ -140,7 +142,8 @@ Note that this offers the possibility to select your scope by subscribing with m
 All those strings are valid subscription names in `/event/worker/`
 
 <div class="alert alert-info" markdown="1">
-**Narrow your scope**<br>
+**Narrow your scope**
+
 We urge you to **not** abuse this. It should be common sense to only subscribe to the specific events you need. So please
 choose your subscription keys as specific as possible!
 </div>
@@ -223,7 +226,8 @@ We call this object structure `QueueEvent`. Let's have a look at its properties:
 * `statusUrl`<br />The URL to the `EventStatus` resource created for this event. Update your worker status in this object.
 
 <div class="alert alert-info" markdown="1">
-**Routing keys**<br />
+**Routing keys**
+
 Understand that the Graviton event name (*document.core.app.update* in this example) corresponds with the RabbitMQ *routing key*.
 So if you bind to the topic exchange with, *document.core.app.\**, you will receive all events concerning `/core/app/`.
 </div>
