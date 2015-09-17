@@ -81,7 +81,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
         "event": "document.core.app.*"
       }
     ]
-}' 'http://localhost:9000/event/worker/example'
+}' 'https://example.org/event/worker/example'
 ```
 
 As you can see, the structure you PUT consists of the following:
@@ -114,7 +114,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
         "event": "document.i18n.language.*"
       }      
     ]
-}' 'http://localhost:9000/event/worker/example'
+}' 'https://example.org/event/worker/example'
 ```
 
 #### Finding the correct event names
@@ -228,7 +228,7 @@ Graviton sends data of the content-type `application/json` to the queue. Dependi
 A typical message of Graviton would be like this:
 
 ```js
-{"event":"document.core.app.update","document":{"$ref":"http:\/\/localhost:8000\/core\/app\/admin"},"status":{"$ref":"http:\/\/localhost:8000\/event\/status\/c013cf7ba58e396f9966d95f5b4238d4"}}
+{"event":"document.core.app.update","document":{"$ref":"https:\/\/example.org\/core\/app\/admin"},"status":{"$ref":"https:\/\/example.org\/event\/status\/c013cf7ba58e396f9966d95f5b4238d4"}}
 ```
 
 If you deserialize this, you will get a simple object:
@@ -237,10 +237,10 @@ If you deserialize this, you will get a simple object:
 {
   "event": "document.core.app.update",
   "document": {
-    "$ref": "http://localhost:8000/core/app/admin"
+    "$ref": "https://example.org/core/app/admin"
   },
   "status": {
-    "$ref": "http://localhost:8000/event/status/c013cf7ba58e396f9966d95f5b4238d4"
+    "$ref": "https://example.org/event/status/c013cf7ba58e396f9966d95f5b4238d4"
   }  
 }
 ```
@@ -286,13 +286,13 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" '
     "name": {
       "en": "Administration"
     }
-}' 'http://localhost:9000/core/app/admin'
+}' 'https://example.org/core/app/admin'
 ```
 
 In the response we will see an addition to the `Link` header:
 
 ```
-Link: <http://localhost:9000/core/app/admin>; rel="self",<http://localhost:9000/event/status/ece21bc6b9633458b213e6a5be2921e2>; rel="eventStatus"
+Link: <https://example.org/core/app/admin>; rel="self",<https://example.org/event/status/ece21bc6b9633458b213e6a5be2921e2>; rel="eventStatus"
 ```
 
 Note that we now have an `eventStatus` rel entry. The client shall parse this and keep it for reference. This resource can be pulled in a desired
