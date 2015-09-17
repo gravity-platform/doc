@@ -47,12 +47,16 @@ The typical workflow for a worker is as follows:
 * The worker does his work
 * The worker sets his status to `done` (again, by `PUT`ing a new version of the `EventStatus` object).
 
-<div class="alert alert-info" markdown="1">
-<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Update your status immediately!**
 
-It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
-as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another worker
-to pick up the work.
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="picto-info-round" aria-hidden="true"></span> Update your status immediately!</h3>
+    </div>
+    <div class="panel-body" markdown="1">
+    It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
+    as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another worker
+    to pick up the work.
+    </div>
 </div>
 
 To enable this functionality, Graviton provides two services for Event handling:
@@ -85,12 +89,15 @@ As you can see, the structure you PUT consists of the following:
 * `id`<br />This is the ID of your worker as you register it. Also not that this must be in the url you `PUT` to, so you `PUT` to `/event/worker/<workerId>`.
 * `subscription`<br />An array of objects. In each object you have an `event` property with the event name you want to subscribe to. You can subscribe to multiple events.
 
-<div class="alert alert-info" markdown="1">
-<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Pick your worker ID wisely**
-
-Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
-choose it to generic. Also note that a worker ID should be a simple word, not containing any spaces. Graviton will issue an error if you have
-invalid characters in your worker ID.
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="picto-info-round" aria-hidden="true"></span> Pick your worker ID wisely</h3>
+    </div>
+    <div class="panel-body" markdown="1">
+    Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
+    choose it to generic. Also note that a worker ID should be a simple word, not containing any spaces. Graviton will issue an error if you have
+    invalid characters in your worker ID.
+    </div>
 </div>
 
 An example to subscribe to multiple events would be:
@@ -153,11 +160,14 @@ Note that this offers the possibility to select your scope by subscribing with m
 
 All those strings are valid subscription names in `/event/worker/`
 
-<div class="alert alert-info" markdown="1">
-<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Narrow your scope**
-
-We urge you to **not** abuse this. It should be common sense to only subscribe to the specific events you need. So please
-choose your subscription keys as specific as possible!
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="picto-info-round" aria-hidden="true"></span> Narrow your scope</h3>
+    </div>
+    <div class="panel-body" markdown="1">
+    We urge you to **not** abuse this. It should be common sense to only subscribe to the specific events you need. So please
+    choose your subscription keys as specific as possible!
+    </div>
 </div>
 
 ### EventStatus: Track your status
@@ -241,11 +251,14 @@ We call this object structure `QueueEvent`. Let's have a look at its properties:
 * `document.$ref`<br />The public reachable URL to the document that was affected by the change.
 * `status.$ref`<br />The URL to the `EventStatus` resource created for this event. Update your worker status in this object.
 
-<div class="alert alert-info" markdown="1">
-<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Routing keys**
-
-Understand that the Graviton event name (*document.core.app.update* in this example) corresponds with the RabbitMQ *routing key*.
-So if you bind to the topic exchange with, *document.core.app.\**, you will receive all events concerning `/core/app/`.
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="picto-info-round" aria-hidden="true"></span> Routing keys</h3>
+    </div>
+    <div class="panel-body" markdown="1">
+    Understand that the Graviton event name (*document.core.app.update* in this example) corresponds with the RabbitMQ *routing key*.
+    So if you bind to the topic exchange with, *document.core.app.\**, you will receive all events concerning `/core/app/`.
+    </div>
 </div>
 
 ### Queue verbosity
