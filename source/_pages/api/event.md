@@ -47,8 +47,8 @@ The typical workflow for a worker is as follows:
 * The worker does his work
 * The worker sets his status to `done` (again, by `PUT`ing a new version of the `EventStatus` object).
 
-<div class="alert alert-info" markdown="1">
-**Update your status immediately!**
+<div class="alert alert-success" markdown="1">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Update your status immediately!**
 
 It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
 as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another worker
@@ -85,8 +85,8 @@ As you can see, the structure you PUT consists of the following:
 * `id`<br />This is the ID of your worker as you register it. Also not that this must be in the url you `PUT` to, so you `PUT` to `/event/worker/<workerId>`.
 * `subscription`<br />An array of objects. In each object you have an `event` property with the event name you want to subscribe to. You can subscribe to multiple events.
 
-<div class="alert alert-info" markdown="1">
-**Pick your worker ID wisely**
+<div class="alert alert-success" markdown="1">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Pick your worker ID wisely**
 
 Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
 choose it to generic. Also note that a worker ID should be a simple word, not containing any spaces. Graviton will issue an error if you have
@@ -123,9 +123,9 @@ A typical event name then may be: `document.core.app.create`.
 Detailed explanation of this components:
 
 * `namespace`<br />A prefix for allowing different event kinds in the future. Currently, only the `document` namespace exists to catch changes on documents.
-* `bundle`<br />This is the internal bundle name Graviton uses. This is *mostly* the first part of the public URL, so in `/core/app/` this leads to `core`.
-* `controller`<br />This is the internal controller name Graviton uses. This is *mostly* the second part of the public URL, so in `/core/app/` this leads to `app`.
-* `action`<br />This is a string identifying what action happened on that record. Possible values are `update` (for `PUT` requests), `create` (for `POST` request) and `delete` (for `DELETE` requests) 
+* `bundle`<br />This is the internal bundle name Graviton uses.
+* `controller`<br />This is the internal controller name Graviton uses.
+* `action`<br />This is a string identifying what action happened on that record. See below for possible values. 
 
 Each service exposes its event names in its schema. If you check the schema of the `/core/app/` service by issuing a `GET` request
 on `/schema/core/app/collection`, you will see a `x-event` array property. Example:
@@ -153,8 +153,8 @@ Note that this offers the possibility to select your scope by subscribing with m
 
 All those strings are valid subscription names in `/event/worker/`
 
-<div class="alert alert-info" markdown="1">
-**Narrow your scope**
+<div class="alert alert-success" markdown="1">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Narrow your scope**
 
 We urge you to **not** abuse this. It should be common sense to only subscribe to the specific events you need. So please
 choose your subscription keys as specific as possible!
@@ -207,12 +207,12 @@ The possible `status` values are:
 
 * `opened`<br />Graviton has created the event, no worker started its work.
 * `working`<br />A worker is currently working on that item.
-* `done`<br />A worker has finished his work
-* `failed`<br />A worker has done is worked, but in a failed state. You may find more information in the `errorInformation` property.
+* `done`<br />A worker has finished his work.
+* `failed`<br />A worker picked up the work, but finished in a failed state. You may find more information in the `errorInformation` property.
 
 ### What you receive on the queue
 
-Graviton sends data of content-type `application/json` to the queue. Depending of your implementation of AMQP client this may
+Graviton sends data of the content-type `application/json` to the queue. Depending on your AMPQ client implementation this may
  already be deserialized to an object automatically or you will need to deserialize it yourself.
  
 A typical message of Graviton would be like this:
@@ -237,8 +237,8 @@ We call this object structure `QueueEvent`. Let's have a look at its properties:
 * `publicUrl`<br />The public reachable URL to the resource that was affected by the change.
 * `statusUrl`<br />The URL to the `EventStatus` resource created for this event. Update your worker status in this object.
 
-<div class="alert alert-info" markdown="1">
-**Routing keys**
+<div class="alert alert-success" markdown="1">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> **Routing keys**
 
 Understand that the Graviton event name (*document.core.app.update* in this example) corresponds with the RabbitMQ *routing key*.
 So if you bind to the topic exchange with, *document.core.app.\**, you will receive all events concerning `/core/app/`.
@@ -283,7 +283,7 @@ frequency to check for `status` property changes done by the workers. Using this
 
 ### When is something 'done'
 
-The convention is that *something is done when all members of the `status` array have set their status to the string "done"*. 
+The convention is that *all work has successfully been finished when all members of the `status` array have set their status to the string "done"*.
 
 ## Example
 
