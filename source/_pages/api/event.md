@@ -112,8 +112,9 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 
 #### Finding the correct event names
 
-For every event that happens, Graviton generates an *event name*. This event name is always a 4 (four) component string and
-consists of:
+For every event that happens, Graviton publishes its message using a defined *event name* as *routing key* on the queue.
+
+This event name is always a 4 (four) component string and consists of:
 
 * `[namespace].[bundle].[controller].[action]`
 
@@ -126,8 +127,19 @@ Detailed explanation of this components:
 * `controller`<br />This is the internal controller name Graviton uses. This is *mostly* the second part of the public URL, so in `/core/app/` this leads to `app`.
 * `action`<br />This is a string identifying what action happened on that record. Possible values are `update` (for `PUT` requests), `create` (for `POST` request) and `delete` (for `DELETE` requests) 
 
-We recommend that you just open a connection to the queue, provoke a certain action (in `develop`) and observe the events, there you can see the event names.
-See section *[Queue verbosity](#Queue_verbosity)* below.
+Each service exposes its event names in its schema. If you check the schema of the `/core/app/` service by issuing a `GET` request
+on `/schema/core/app/collection`, you will see a `x-event` array property. Example:
+
+```
+"x-events": [
+    "document.core.app.update",
+    "document.core.app.create",
+    "document.core.app.delete"
+]
+```
+* `*.update`<br />Fires when the user issues a `PUT` request.
+* `*.create`<br />Fires when the user issues a `POST` request.
+* `*.delete`<br />Fires when the user issues a `DELETE` request.
 
 #### Event name levels
 
