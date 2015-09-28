@@ -352,3 +352,7 @@ We could describe every single step here, but at the end the code speaks for its
 We created an [example worker implementation in our Github organization](https://github.com/libgraviton/graviton-worker-example/tree/master). Please
 take a look at this example implementation (see the file [src/Worker.php](https://github.com/libgraviton/graviton-worker-example/blob/master/src/Worker.php) for a 
 complete code example).
+
+## Java base library
+
+We maintain a [Java base library](https://github.com/libgraviton/graviton-worker-base-java) that simplifies the creation of Java based workers.
