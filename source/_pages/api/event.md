@@ -200,7 +200,7 @@ A typical `EventStatus` looks like this:
       "status": "done"
     }
   ],
-  "errorInformation": []
+  "information": []
 }
 ```
 
@@ -218,7 +218,42 @@ The possible `status` values are:
 * `opened`<br />Graviton has created the event, no worker started its work.
 * `working`<br />A worker is currently working on that item.
 * `done`<br />A worker has finished his work.
-* `failed`<br />A worker picked up the work, but finished in a failed state. You may find more information in the `errorInformation` property.
+* `failed`<br />A worker picked up the work, but finished in a failed state.
+
+If you pass any other values for `status`, Graviton will reject your request as invalid.
+
+### The `information` array property
+
+The `/event/status/` resource contains an `information` property that gives workers the opportunity to write some specific information
+regarding that can be picked up by the event creator (ie the client pulling the event status).
+
+The `information` is an array property, containing objects of the following structure:
+
+```js
+{
+    "information": [
+        {
+            "workerId": "worker2",
+            "type": "error",
+            "content": "Could not write file to disk."
+        },    
+        {
+            "workerId": "worker1",
+            "type": "info",
+            "content": "See the generated document",
+            "$ref": "https://example.org/file/sadsdsds892sdsd111"
+        }
+    ]
+}
+```
+
+The properties of the information object are as follows:
+
+* `workerId`<br />The ID of your worker. This field is `required`.
+* `type`<br />The type of information. Valid values are: `debug, info, warning, error`. If you pass any other value, your request will be rejected. 
+  This field is `required`.
+* `content`<br />A string containing the information you want to pass. This field is `required`.
+* `$ref`<br />An optional reference to any resource you may want to reference. This could be the place for a `/file` upload you generated with your worker.
 
 ### What you receive on the queue
 
