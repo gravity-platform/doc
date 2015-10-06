@@ -4,27 +4,80 @@ layout: default
 ---
 # Gravity-Platform Documentation
 
-This is the main documentation site for the graviton-platform. The platform consists of the following projects registered as organisations on github.
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><span class="picto-api"></span> API</h3>
+      </div>
+      <div class="panel-body">
 
-````
-  +-------------------------------------+
-  |                                     |
-  |          gravity-plattform          |
-  |                                     |
-  |  +------------+  +---------------+  |
-  |  |            |  |               |  |
-  |  |  graviton  |  |  graviphoton  |  |
-  |  |            |  |               |  |
-  |  +------------+  +---------------+  |
-  |                                     |
-  +-------------------------------------+
-````
+        <p>Our platform offers a variety of API interfaces.</p>
 
-- [graviton](https://github.com/libgraviton) REST server (hosted under libgraviton for historical reasons)
-- [graviphoton](https://github.com/graviphoton) JavaScript based user interface
-- [gravity-plattform](https://github.com/gravity-platform) platform for developing and running graviton and graviphoton
+        <a class="btn btn-primary pull-right" href="/api">API Docs</a>
 
-Next, you might head over to the [Installation Guide](/ops/installation_guide) to get started. The
-[Developer Guide](/guides/developer_guide) is also an important resource.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><span class="picto-book"></span> Guides</h3>
+      </div>
+      <div class="panel-body">
 
-Please note that gravity-plattform is still very unstable.
+        <p>Guides for developers and more.</p>
+
+        <a class="btn btn-default pull-right" href="/guides">Guides</a>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><span class="picto-info"></span> About</h3>
+      </div>
+      <div class="panel-body">
+
+        <p>What we are about.</p>
+
+        <a class="btn btn-default pull-right" href="http://evoja.ch">About</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-md-2 text-center">
+          <p><span class="picto-rocket picto-4x"></span></p>
+          <small>Powerful Services</small>
+        </div>
+        <div class="col-md-2 text-center">
+          <p><span class="picto-database picto-4x"></span></p>
+          <small>Your Data</small>
+        </div>
+        <div class="col-md-2 text-center">
+          <p><span class="picto-website picto-4x"></span></p>
+          <small>Build Websites</small>
+        </div>
+        <div class="col-md-2 text-center">
+          <p><span class="picto-mobile picto-4x"></span></p>
+          <small>Create Apps</small>
+        </div>
+        <div class="col-md-2 text-center">
+          <p><span class="picto-cloud picto-4x"></span></p>
+          <small>Runs in the Cloud</small>
+        </div>
+        <div class="col-md-2 text-center">
+          <p><span class="picto-factory picto-4x"></span></p>
+          <small>On-Premise Available</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
