@@ -14,8 +14,7 @@ layout: default
 
         <p>Our platform offers a variety of API interfaces.</p>
 
-        <a class="btn btn-primary pull-right" href="/api">API Docs</a>
-
+        <a class="btn btn-primary pull-right" style="margin-bottom: 6px" href="/api">API Docs</a>
       </div>
     </div>
   </div>
@@ -28,7 +27,7 @@ layout: default
 
         <p>Guides for developers and more.</p>
 
-        <a class="btn btn-default pull-right" href="/guides">Guides</a>
+        <a class="btn btn-default pull-right" style="margin-bottom: 6px" href="/guides">Guides</a>
 
       </div>
     </div>
@@ -42,7 +41,7 @@ layout: default
 
         <p>What we are about.</p>
 
-        <a class="btn btn-default pull-right" href="http://evoja.ch">About</a>
+        <a class="btn btn-default pull-right" style="margin-bottom: 6px" href="http://evoja.ch">About</a>
 
       </div>
     </div>
@@ -52,7 +51,7 @@ layout: default
 <div class="row">
   <div class="col-xs-12">
     <div class="jumbotron">
-      <div class="row">
+      <div class="row text-info">
         <div class="col-md-2 text-center">
           <p><span class="picto-rocket picto-4x"></span></p>
           <small>Powerful Services</small>

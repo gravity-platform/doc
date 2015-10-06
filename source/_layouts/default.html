@@ -37,8 +37,10 @@
 
                     {% include 'nav_vert.html.twig' %}
             </div>
-            {% endif %}
             <div class="col-sm-10 col-lg-11 sc-main-content">
+            {% else %}
+            <div class="col-sm-12 col-lg-12 sc-main-content">
+            {% endif %}
                 {% block content_wrapper %}
                 {% if page.outdated == '1' %}{% include 'outdated.html.twig' %}{% endif %}
                 {% block content %}{% endblock %}
