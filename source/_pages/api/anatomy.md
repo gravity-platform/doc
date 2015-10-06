@@ -5,39 +5,115 @@ top_nav: api
 ---
 # Service Anatomy
 
-This document describes the protocol between the graviton backend and
-the graviphoton frontend.
+Most services on a graviton instance have a predictable API surface.
 
-> The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-> "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in
-> this document are to be interpreted as described in RFC 2119.
+Each service comes in two parts, the schema declaration as well as the actual
+API endpoints.
 
-This document describes a domain specific, [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)
-compliant [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer) interface.
-It has a normative character and is complemented by the api docs of the interface.
+The examples below are based around the `/core/app/` services which usually exist
+on all graviton instances.
 
-## service anatomy
+Only a very small amount of graviton services do not follow this convention. In fact
+the only currently exception should be the [version service](/api/versions) which
+has its own documentation.
 
-The following section applies to each individual service hosted on the backend.
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+          <span class="picto-info-round" aria-hidden="true"></span>
+          More documentation is always available
+        </div>
+    </div>
+    <div class="panel-body" markdown="1">
+    Full documentation on all the available services is self hosted on each graviton instance.
 
-Each service provided by the backend MUST offer two different types of endpoints.
-A collection endpoint as well a an item endpoint. The collection endpoint SHALL
-be used for accessing lists of resources and for creating new resources. The item
-endpoint SHALL be used for accessing, altering and deleting single resources.
+    A basic service listing may be found at the root URL.
+    ```bash
+    curl https://example.com
+    ```
+    A more complete overview is available through a [swagger](http://swagger.io/) definition.
+    ```bash
+    curl https://example.com/swagger.json
+    ```
+    </div>
+</div>
 
-The following URL examples show different types of operations that the backend MUST
-support. All APIs will support these operations, the ``/core/app`` API is merely
-used as an example due to it's early availability.
 
-### collection endpoint examples
-````
-GET /core/app -> returns list of apps
-POST /core/app -> create new app
-````
-### item endpoint examples
-````
-GET /core/app/hello -> returns hello world app
-PUT /core/app/hello -> replace hello world app
-PATCH /core/app/hello -> alter hello world app using json-patch
-DELETE /core/app/hello -> delete app
-````
+## Endpoints
+
+### Schemas
+
+All of our output has adequate schema documentation that may be used for
+validation of graviton data structures. Much more important is that this schema
+information allows us to add inline documentation on the semantics of the data
+provided by graviton.
+
+#### Schema describing an individual document
+
+```bash
+curl https://example.org/schema/core/app/item
+```
+
+#### Schema describing a collection of documents
+
+```bash
+curl https://example.org/schema/core/app/collection
+```
+
+Collection schemas are available as a convenience so you may use them against our
+collection endpoints. For the most part they contain the same data you would also
+find in the corresponding item schema.
+
+### APIs
+
+#### GET collection of documents
+
+```bash
+curl https://example.org/core/app/ 
+```
+
+You can search in collections using [RQL](/api/rql).
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+          <span class="picto-info-round" aria-hidden="true"></span>
+          Getting invalid data with RQL <code>select()</code> operator
+        </div>
+    </div>
+    <div class="panel-body" markdown="1">
+    Note that it is possible to export data that does not adhere to the schemas using the [RQL](/api/rql) `select()` operator.
+
+    As a rule of thumb, if you plan on modifying retrieved documents and want to PUT them into graviton again, you
+    should probably not use the operator.
+    </div>
+</div>
+
+
+#### POST a new document (server defines id)
+
+```bash
+curl -X POST -d '{}' https://example.org/core/app/
+```
+
+Check the response headers to see what id your document was stored at.
+
+#### PUT a new document or update an existing one (client defines id)
+
+```bash
+curl -X PUT -d '{}' https://example.org/core/app/my-id
+```
+
+This is also referred to as an *upsert* operation.
+
+#### GET an existing document
+
+```bash
+curl -X GET https://example.org/core/app/my-id
+```
+
+#### DELETE a document
+
+```bash
+curl -X DELETE https://example.org/core/app/my-id
+```
