@@ -7,7 +7,8 @@ top_nav: api
 # Packages Version
 
 Every version of an installed package is returned in a header called x-version. Furthermore you're able to 
-retrieve those by requesting /core/version. The schema is provided at /schema/core/version
+retrieve those by requesting /core/version. The schema is provided at /schema/core/version.
+These versions show everything which may change the API. 
 
 ### Endpoint example
 
@@ -17,7 +18,7 @@ Since it's not a collection the endpoint does NOT have a slash at the end.
 GET /core/version -> returns an object containing all version numbers
 ````
 
-Only GET request are supported. 
+Only GET requests are supported. 
 
 The format will be something like this:
 
@@ -27,14 +28,8 @@ The format will be something like this:
     "versions": 
 
     {
-        "self": "dev-c0a8660e94220952ac0f805028df2e080b361f42",
-        "graviton/graviton": "0.31.0",
-        "grv/evoja-checklist-bundle": "v0.3.0",
-        "grv/evoja-loadconfig-szkb-bap-bundle": "v0.10.0",
-        "grv/graviton-service-bundle-consultation": "v0.3.0",
-        "grv/graviton-service-bundle-financing": "v0.15.0",
-        "grv/graviton-service-bundle-investment": "v0.4.0",
-        "grv/graviton-service-bundle-provision": "v0.3.1"
+        "self": "v0.12.0",
+        "graviton/graviton": "0.31.0"
     }
 
 }
@@ -56,16 +51,6 @@ desiredVersions:
   - self
   
   - graviton/graviton
-  
-  - grv/graviton-service-bundle-financing
-  
-  - grv/graviton-service-bundle-consultation
-  
-  - grv/graviton-service-bundle-provision
-  
-  - grv/graviton-service-bundle-investment
-  
-  - grv/evoja-loadconfig-szkb-bap-bundle
 ```
 
 ### self
