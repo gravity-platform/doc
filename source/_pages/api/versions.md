@@ -40,9 +40,9 @@ The format will be something like this:
 }
 ```
 
-A working example can be found [here](http://graviton.nova.scapp.io/core/version).
+A working example can be found [here](https://graviton.nova.scapp.io/core/version).
 
-And the schema [here](http://graviton.nova.scapp.io/schema/core/version).
+And the schema [here](https://graviton.nova.scapp.io/schema/core/version).
 
 ## How to configure which version are reported
 
