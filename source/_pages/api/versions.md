@@ -39,20 +39,6 @@ A working example can be found [here](https://graviton.nova.scapp.io/core/versio
 
 And the schema [here](https://graviton.nova.scapp.io/schema/core/version).
 
-## How to configure which version are reported
-
-In the folder `app/config/` you can find a file called `version_service.yml` where you can add/remove packages.
-
-### An example for `version_service.yml`
-
-```
-desiredVersions:
-
-  - self
-  
-  - graviton/graviton
-```
-
 ### self
 
 If you want to display the wrapper/graviton version just add `self`. `self` is always the version of the context you're in.
