@@ -42,7 +42,7 @@ The following schema might be generated.
 
 The ``format`` key with a value of ``extref`` allows clients to recognize that a link points to a graviton service.
 
-In such cases the ``x-collection`` attribute exposes a list of valid collections that may be used in links. In the above example the values from ``https://example.org/core/app`` could be used to populate a list of possible links by a client.
+In such cases the ``x-collection`` attribute exposes a list of valid collections that may be used in links. In the above example the values from ``https://example.org/core/app/`` could be used to populate a list of possible links by a client.
 
 The ``x-collection`` attribute also supports containing a value of ``*``. The wildcard value specifies that any valid graviton service may be used as a link target.
 

@@ -6,7 +6,7 @@ top_nav: api
 
 # File service
 
-The file service in graviton is reachable at the ``/file`` endpoint. It was developed as a catch-all solution to clients file storage needs.
+The file service in graviton is reachable at the ``/file/`` endpoint. It was developed as a catch-all solution to clients file storage needs.
 
 Graviton file services are backed by either machine local storage or an S3 bucket depending on your deploy.
 
@@ -24,7 +24,7 @@ Create and upload a simple text file as follows.
 echo "Hallo Graviton" > test.txt
 
 curl -v -X POST -H "Content-Type: text/plain" \
-    -T'{test.txt}' https://example.org/file
+    -T'{test.txt}' https://example.org/file/
 ````
 
 Observe the ``Location`` header in the output from the ``POST`` request. It tells you where the file was stored and has the following format:
