@@ -9,20 +9,46 @@ top_nav: api
 Every version of an installed package is returned in a header called x-version. Furthermore you're able to 
 retrieve those by requesting /core/version. The schema is provided at /schema/core/version
 
-### collection endpoint examples
+### Endpoint example
+
+Since it's not a collection the endpoint does NOT have a slash at the end. 
+
 ````
-GET /core/version -> returns object containing all version numbers
+GET /core/version -> returns an object containing all version numbers
 ````
 
-Other HTTP verbs aren't supported. 
+Only GET request are supported. 
+
+The format will be something like this:
+
+```
+{
+
+    "versions": 
+
+    {
+        "self": "dev-c0a8660e94220952ac0f805028df2e080b361f42",
+        "graviton/graviton": "0.31.0",
+        "grv/evoja-checklist-bundle": "v0.3.0",
+        "grv/evoja-loadconfig-szkb-bap-bundle": "v0.10.0",
+        "grv/graviton-service-bundle-consultation": "v0.3.0",
+        "grv/graviton-service-bundle-financing": "v0.15.0",
+        "grv/graviton-service-bundle-investment": "v0.4.0",
+        "grv/graviton-service-bundle-provision": "v0.3.1"
+    }
+
+}
+```
+
+A working example can be found [here](http://evoja-szkb-bap-backend-develop.nova.scapp.io/core/version).
+
+And the schema [here](http://evoja-szkb-bap-backend-develop.nova.scapp.io/schema/core/version).
 
 ## How to configure which version are reported
 
 In the folder `app/config/` you can find a file called `version_service.yml` where you can add/remove packages.
 
-If you want to display the wrapper/graviton version just add `self`
-
-### An example 
+### An example for `version_service.yml`
 
 ```
 desiredVersions:
@@ -42,13 +68,10 @@ desiredVersions:
   - grv/evoja-loadconfig-szkb-bap-bundle
 ```
 
-## How does it work?
+### self
 
-While bootstrapping the version numbers are fetched from versions.yml and saved into the container using a compiler pass.
-
-The version numbers are accessible trough the container as `graviton.core.version.data`.
-
-For example: `$container->getParameter('graviton.core.version.data');`
-
-CoreUtils afterwards handles the logic e.g. to return the version numbers in a header format.
+If you want to display the wrapper/graviton version just add `self`. `self` is always the version of the context you're in.
+This means if it's only a plain graviton instance `self` refers to the version of graviton itself. Moreover if it's for example 
+a wrapper `self` refers to the version of the wrapper. In this case the graviton version will be referenced as graviton/graviton.
+You can say `self` is the version number of the instance currently running.
 
