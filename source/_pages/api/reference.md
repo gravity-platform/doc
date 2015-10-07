@@ -16,7 +16,7 @@ Given the following document that has a link to another document on the graviton
 
 ```json
 {
-  "$ref": "https://graviton.nova.scapp.io/core/app/test"
+  "$ref": "https://example.org/core/app/test"
 }
 ```
 
@@ -33,7 +33,7 @@ The following schema might be generated.
       "type": "string",
       "format": "extref",
       "x-collection": [
-        "https://graviton.nova.scapp.io/core/app/"
+        "https://example.org/core/app/"
       ]
     }
   }
@@ -42,7 +42,7 @@ The following schema might be generated.
 
 The ``format`` key with a value of ``extref`` allows clients to recognize that a link points to a graviton service.
 
-In such cases the ``x-collection`` attribute exposes a list of valid collections that may be used in links. In the above example the values from ``https://graviton.nova.scapp.io/core/app`` could be used to populate a list of possible links by a client.
+In such cases the ``x-collection`` attribute exposes a list of valid collections that may be used in links. In the above example the values from ``https://example.org/core/app`` could be used to populate a list of possible links by a client.
 
 The ``x-collection`` attribute also supports containing a value of ``*``. The wildcard value specifies that any valid graviton service may be used as a link target.
 
@@ -53,13 +53,13 @@ While querying ``$ref`` entries, the usual [RQL encoding rules](https://github.c
 A query fetching the above example would look as follows.
 
 ```http
-https://graviton.nova.scapp.io/service/?%24ref=https%3A%2F%2Fgraviton.nova.scapp.io%2Fcore%2Fapp%2Ftest
+https://example.org/service/?%24ref=https%3A%2F%2Fexample.org%2Fcore%2Fapp%2Ftest
 ```
 
 To fetch a list of entries to populate a select box you might combine this with the ``select()`` operator.
 
 ```http
-https://graviton.nova.scapp.io/service/?%24ref=https%3A%2F%2Fgraviton.nova.scapp.io%2Fcore%2Fapp%2Ftest&select(id,name)
+https://example.org/service/?%24ref=https%3A%2F%2Fexample.org%2Fcore%2Fapp%2Ftest&select(id,name)
 ```
 
 ### Special Cases
@@ -71,11 +71,11 @@ Given the following resource.
 ```json
 {
   "object": {
-    "$ref": "https://graviton.nova.scapp.io/core/app/test"
+    "$ref": "https://example.org/core/app/test"
   },
   "array": [
     {
-      "$ref": "https://graviton.nova.scapp.io/core/app/test"
+      "$ref": "https://example.org/core/app/test"
     }
   ]
 }
@@ -84,8 +84,8 @@ Given the following resource.
 You may use the following queries (note the operator before ``%24ref``).
 
 ```http
-https://graviton.nova.scapp.io/service/?object.%24ref=https%3A%2F%2Fgraviton.nova.scapp.io%2Fcore%2Fapp%2Ftest
-https://graviton.nova.scapp.io/service/?array..%24ref=https%3A%2F%2Fgraviton.nova.scapp.io%2Fcore%2Fapp%2Ftest
+https://example.org/service/?object.%24ref=https%3A%2F%2Fexample.org%2Fcore%2Fapp%2Ftest
+https://example.org/service/?array..%24ref=https%3A%2F%2Fexample.org%2Fcore%2Fapp%2Ftest
 ```
 
 <div class="alert alert-info" markdown="1">
