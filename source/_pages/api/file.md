@@ -6,7 +6,7 @@ top_nav: api
 
 # File service
 
-The file service in graviton is reachable at the ``/file`` endpoint. It was developed as a catch-all solution to clients file storage needs.
+The file service in graviton is reachable at the ``/file/`` endpoint. It was developed as a catch-all solution to clients file storage needs.
 
 Graviton file services are backed by either machine local storage or an S3 bucket depending on your deploy.
 
