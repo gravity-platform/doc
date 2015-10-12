@@ -82,6 +82,23 @@ curl -v -X PUT -H "Content-Type: text/plain" \
     -T'{test.txt}' https://graviton.nova.scapp.io/file/55bb584a08420b5f288b457c
 ````
 
+### Upload File and Metadata in one go
+
+By introducing the content-type *multipart/form-data* it is now possible to send the file and the metadata in one
+POST request.
+Since this is basically a form submit the information is send as form fields:
+- *metadata* » use for the metadata formerly sent as payload in step 2
+- *upload* » use to send the file to be stored
+
+```bash
+curl -X POST \
+     -F 'metadata={"action":[{"command":"print"},{"command":"archive"}]}' \
+     -F upload=@test.txt \
+     http://graviton.nova.scapp.io/file
+```
+
+The set of readonly metadata fields is extend by the field: ```filename```, which will now be set by graviton.
+
 ## Example data (annotated)
 
 ```js
