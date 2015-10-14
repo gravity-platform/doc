@@ -14,11 +14,11 @@ Please see the documentation linked in the Appendix for more details on RQL.
 
 ## Examples
 
-* ``http://graviton.nova.scapp.io/core/module?eq(name,foo)`` - Return all entries where name == "foo"
-* ``http://graviton.nova.scapp.io/core/module?limit(5)`` - Only return the first 5 items
-* ``http://graviton.nova.scapp.io/core/module?limit(2,4)`` - Return 2 items, starting with item number 4
-* ``http://graviton.nova.scapp.io/core/module?eq(name,foo)&limit(2)`` - Return the first two items where name == "foo"
-* ``http://graviton.nova.scapp.io/core/module?name=foo`` - Return items where name == "foo" (alternative syntax)
+* ``https://example.org/core/module/?eq(name,foo)`` - Return all entries where name == "foo"
+* ``https://example.org/core/module/?limit(5)`` - Only return the first 5 items
+* ``https://example.org/core/module/?limit(2,4)`` - Return 2 items, starting with item number 4
+* ``https://example.org/core/module/?eq(name,foo)&limit(2)`` - Return the first two items where name == "foo"
+* ``https://example.org/core/module/?name=foo`` - Return items where name == "foo" (alternative syntax)
 
 ## Special cases
 
