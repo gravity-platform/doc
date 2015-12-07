@@ -68,5 +68,92 @@ metadata pertaining to the migrations.
 
 ## Generating and Writing Migrations
 
+To help you getting started with writing a migration you can use the console.
+
+```
+./vendor/graviton/graviton/app/console mongodb:migrations:generate --configuration=vendor/acme/acme-bundle/src/Resources/config/migrations.yml
+```
+
+This generates a new migration class which needs to be customized to suite you migration needs. You will need to implement both the `up()` and
+`down()` method for a full migration.
+
+If you need access to other parts of graviton during migrations you may use the `ContainerAwareInterface` on you migration to get a container injected.
+
+### Annotated Example Annotation
+
+```php
+<?php
+/**
+ * example migration
+ */
+
+namespace Graviton\EvojaChecklistBundle\src\Migrations\MongoDB;
+
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use AntiMattr\MongoDB\Migrations\AbstractMigration;
+use Doctrine\MongoDB\Database;
+
+/**
+ * @author   List of contributors <https://github.com/libgraviton/graviton/graphs/contributors>
+ * @license  http://opensource.org/licenses/MIT MIT License
+ * @link     http://swisscom.ch
+ */
+class Version20151207122656 extends AbstractMigration implements ContainerAwareInterface
+{
+    /**
+     * @var ContainerInterface container
+     */
+    private $container;
+
+    /**
+     * @param ContainerInterface|null $container
+     * @return void
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return "Migrate acme bundle things";
+    }
+
+    /**
+     * @param Database $db mongodb database
+     * @return void
+     */
+    public function up(Database $db)
+    {
+        // get dm (or other stuff) from dm
+        $dm = $this->container->get('doctrine.odm.mongodb.document_manager');
+
+        // do migration (use hydrate(false) as needed)
+        // ...
+
+        // flush dm at the end
+        $dm->flush();
+    }
+
+    /**
+     * @param Database $db mongodb database
+     * @return void
+     */
+    public function down(Database $db)
+    {
+        // do something similar to up() bu the other way around
+    }
+}
+```
+
 ## Running Migrations
 
+You can run the migrations for a single bundle using the `mongodb:migrations:migrate` command as long as you pass the path to a configuration as
+described above.
+
+For you convenience you may also call `graviton:mongodb:migrate` which will run the migrate command for all configurations stored in the `Resources/config`
+directory of a bundle.
