@@ -134,7 +134,9 @@ class Version20151207122656 extends AbstractMigration implements ContainerAwareI
 
         // do migration (use hydrate(false) as needed)
         // ...
-
+        // $qb = $dm->createQueryBuilder('GravitonDyn\AcmeBundle\Document\Docuemnt');
+        // ...
+ 
         // flush dm at the end
         $dm->flush();
     }
