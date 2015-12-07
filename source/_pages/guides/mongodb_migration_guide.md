@@ -70,7 +70,8 @@ metadata pertaining to the migrations.
 To help you getting started with writing a migration you can use the console.
 
 ```
-./vendor/graviton/graviton/app/console mongodb:migrations:generate --configuration=vendor/acme/acme-bundle/src/Resources/config/migrations.yml
+./vendor/graviton/graviton/app/console mongodb:migrations:generate \
+        --configuration=vendor/acme/acme-bundle/src/Resources/config/migrations.yml
 ```
 
 This generates a new migration class which needs to be customized to suite your migration needs. You will need to implement both the `up()` and
@@ -134,7 +135,7 @@ class Version20151207122656 extends AbstractMigration implements ContainerAwareI
 
         // do migration (use hydrate(false) as needed)
         // ...
-        // $qb = $dm->createQueryBuilder('GravitonDyn\AcmeBundle\Document\Docuemnt');
+        // $qb = $dm->createQueryBuilder('GravitonDyn\AcmeBundle\Document\Document');
         // ...
  
         // flush dm at the end
@@ -158,7 +159,8 @@ You can run the migrations for a single bundle using the `mongodb:migrations:mig
 described above.
 
 ```
-./vendor/graviton/graviton/app/console mongodb:migrations:migrate --configuration=vendor/acme/acme-bundle/src/Resources/config/migrations.yml
+./vendor/graviton/graviton/app/console mongodb:migrations:migrate \
+        --configuration=vendor/acme/acme-bundle/src/Resources/config/migrations.yml
 ```
 
 For your convenience you may also call `graviton:mongodb:migrate` which will run the migrate command for all configurations stored in the `Resources/config`
