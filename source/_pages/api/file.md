@@ -91,14 +91,14 @@ Since this is basically a form submit the information is send as form fields:
 
 ```bash
 curl -X POST \
-     -F 'metadata={"links":[],"metadata":"action":[{"command":"print"},{"command":"archive"}]}' \
+     -F 'metadata={"links":[],"metadata": {"action":[{"command":"print"},{"command":"archive"}]}}' \
      -F upload=@test.txt \
      https://example.org/file
 ```
 
 ```bash
 curl -X PUT \
-     -F 'metadata={"id": "myPersonalFile","links":[],"metadata":"action":[{"command":"print"},{"command":"archive"}]}' \
+     -F 'metadata={"id": "myPersonalFile","links":[],"metadata": {"action":[{"command":"print"},{"command":"archive"}]}}' \
      -F upload=@test.txt \
      https://example.org/file/myPersonalFile
 ```
