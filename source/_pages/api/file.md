@@ -136,7 +136,12 @@ The set of readonly metadata fields is extend by the field: ```filename```, whic
         // read only and set when a file is replaced
         "modificationDate": "2015-08-06T10:51:20+0000",
         // read only and inferred from the upload
-        "size": 12
+        "size": 12,
+        // key/value store for additional properties. Also used for add information for printing and archiving
+        "additionalProperties": [
+            {"name": "propertyName", "value": "aValue"},
+            {"name": "secondProp", "value": "otherValue"}
+        ]
     }
 }
 ```
