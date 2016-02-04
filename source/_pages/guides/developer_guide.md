@@ -2,7 +2,6 @@
 title: Developer
 layout: default
 top_nav: guides
-outdated: true
 ---
 # How to Hack the Gravity-Platform
 
