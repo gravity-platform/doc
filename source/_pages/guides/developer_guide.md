@@ -16,8 +16,8 @@ to contain enough information to help getting people from various it backgrounds
 Our gravity-platform services are written in a few different languages and are organized
 into the following tiers.
 
-- mongodb as data tier
-- graviton, a symfony 2 based JSON/REST server generation toolkit as api tier
+- [mongodb](https://www.mongodb.org/) as data tier
+- graviton, a [symfony](https://symfony.com/) based JSON/REST server generation toolkit as api tier
 - several workers as logic tier
 - various angular2 or mobile native presentation tiers that stay in-house for the most part
 
@@ -28,7 +28,7 @@ of gravity platform for the sake of this documentation.
 
 For you to start developing on most parts of the platform you will need a suitable workstation.
 
-We recommend copiouos amounts of RAM as well as a fast SSD for being able to work effectivly.
+We recommend copious amounts of RAM as well as a fast SSD for being able to work effectivly.
 You will probably get away with HDD based systems and 4 GB of RAM but you will certainly incur
 a noticable performance penalty.
 
@@ -37,7 +37,8 @@ way to develop with the platform is on a linux box. Using a virtual box is fine 
 encouraged since it leads to a more stable development environment in all cases.
 
 The most used cases used by platform developers at the moment are usually using
-[VirtualBox](https://www.virtualbox.org/) on either OS X or Windows.
+[VirtualBox](https://www.virtualbox.org/) on either [OS X](http://www.apple.com/osx/) or
+[Windows](https://www.microsoft.com/windows).
 
 In theory it is also possible to run all the tools native. Using a modern GNU/Linux distribution
 this is easy to set up and do, on OS X it is only for the brave (and maybe slightly mad) and
