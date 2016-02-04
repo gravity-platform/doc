@@ -89,7 +89,7 @@ specification.
 Incrementing the version is done on a ``release`` branch after carefully considering
 all the merges in ``develop`` or in ``hotfixes``.
 
-## Package Repositories
+### Package Repositories
 
 The gravity-platform makes heavy use of multiple package repositories. The repositories being used
 are detailed in this guide.
