@@ -8,7 +8,7 @@ top_nav: guides
 Are you new to hacking on graviton and graviton based services? This document aims at
 getting your local development infrastructure up and running.
 
-It assumes that you have a general idea of how modern multitier architecture and tries
+It assumes that you have a general idea of how modern multitier architecture works and tries
 to contain enough information to help getting people from various it backgrounds started.
 
 ## Overview
@@ -21,8 +21,8 @@ into the following tiers.
 - several workers as logic tier
 - various angular2 or mobile native presentation tiers that stay in-house for the most part
 
-Along with several supporting services all these services make out what we consider a kind
-of gravity platform for the sake of this documentation.
+Along with several supporting services all these services make out what we consider a gravity
+platform.
 
 ## Requirements
 
@@ -32,9 +32,9 @@ We recommend copious amounts of RAM as well as a fast SSD for being able to work
 You will probably get away with HDD based systems and 4 GB of RAM but you will certainly incur
 a noticable performance penalty.
 
-Due to the fact that all parts of the stack run on GNU/Linux at runtime, the single most efficient
-way to develop with the platform is on a linux box. Using a virtual box is fine and actually
-encouraged since it leads to a more stable development environment in all cases.
+Due to the fact that all parts of the stack run on [GNU/Linux](https://www.linux.com/) at runtime, 
+the single most efficient way to develop with the platform is on a linux box. Using a virtual box
+is fine and actually encouraged since it leads to a more stable development environment in all cases.
 
 The most used cases used by platform developers at the moment are usually using
 [VirtualBox](https://www.virtualbox.org/) on either [OS X](http://www.apple.com/osx/) or
@@ -60,15 +60,12 @@ Have a look at the organizations the repos are in if you are looking for more bi
 ## The commons
 
 All our repos have some things in common. They all contain a README.md that explains what the
-repository is about. The follow [git-flow](http://nvie.com/posts/a-successful-git-branching-model/)
-conventions and contain the bare code without any build artefacts. We strive at keeping the code
-at a deployable state and the repos usually contain automation to that effect. To aid in proper
-communication about code we follow the [semver](http://semver.org/spec/v2.0.0.html) versioning
-standard.
+repository is about. They follow [git-flow](http://nvie.com/git-model/) conventions and contain 
+the bare code without any build artefacts. We strive to keep the code in a deployable state and 
+the repos usually contain automation to that effect. To aid proper communication about the code 
+we follow the [semver](http://semver.org/spec/v2.0.0.html) versioning standard.
 
 ### git-flow
-
-We use the [``git-flow``](http://nvie.com/git-model/) system for version control wherever possible.
 
 If you want to use the model effectively it is highly recommend that you look into tooling to do so.
 Regular git users may find  the [gitflow tool](https://github.com/nvie/gitflow) handy and there are
@@ -95,7 +92,7 @@ all the merges in ``develop`` or in ``hotfixes``.
 The gravity-platform makes heavy use of multiple package repositories. The repositories being used
 are detailed in this guide.
 
-The PHP package archive [packagist](https://packagist.org/) is used for all open PHP code. Additionally there are some private bundle only available to select partners on our internal satis server.
+The PHP package archive [packagist](https://packagist.org/) is used for all open PHP code. Additionally there are some private bundles only available to select partners on our internal satis server.
 
 Node packaged modules [npm](https://npmjs.org/) are used during the build phase of JavaScript based
 projects.
