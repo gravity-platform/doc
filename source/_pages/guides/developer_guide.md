@@ -115,3 +115,8 @@ git clone git@github.com:gravity-platform/vagrant-centos-7-php.git
 cd vagrant-centos-7-php
 vagrant up
 ```
+
+## Further reading
+
+* [API docs](/api/)
+* [JSON definition guide](/guides/json_definition_guide/)
