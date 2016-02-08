@@ -101,3 +101,17 @@ Node packaged modules [npm](https://npmjs.org/) are used during the build phase 
 projects.
 
 Precompiled JavaScript components for the browser can be installed with [Bower components](http://sindresorhus.com/bower-components/) or with npm as required.
+
+## Developer box
+
+You can find tools needed to run graviton on [vagrant](https://www.vagrantup.com/) for dev purposes in our [vagrant-centos-7-php](https://github.com/gravity-platform/vagrant-centos-7-php) repo.
+
+The vagrant setup makes it possible for you to do graviton development on non GNU/Linux
+platform by emulating them on you existing machine. After intalling vagrant you may clone
+the Vagranfile and start the install.
+
+```
+git clone git@github.com:gravity-platform/vagrant-centos-7-php.git
+cd vagrant-centos-7-php
+vagrant up
+```
