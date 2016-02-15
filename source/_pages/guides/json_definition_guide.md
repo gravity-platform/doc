@@ -237,7 +237,7 @@ There are some cases where we need to expose a array for objects as a hash, usin
 ```
 
 The above example uses the `id` field of the Bar document as key in hashes. It uses the `ref-field` value of the resources found by `findAll` on `AcmeNamespaceBarBundle:Bar`
-as key and onlyi allows those values as key.
+as key and only allows those values as key.
 
 #### Writable fields in readonly services
 
