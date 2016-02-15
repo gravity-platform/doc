@@ -84,19 +84,27 @@ curl -v -X PUT -H "Content-Type: text/plain" \
 
 ### Upload File and Metadata in one go
 
-By introducing the content-type *multipart/form-data* it is now possible to send the file and the metadata in one
-POST request.
+By introducing the content-type *multipart/form-data* it is now possible to send the file and the metadata in one PUT or POST request.
 Since this is basically a form submit the information is send as form fields:
 - *metadata* » use for the metadata formerly sent as payload in step 2
 - *upload* » use to send the file to be stored
 
 ```bash
 curl -X POST \
-     -F 'metadata={"action":[{"command":"print"},{"command":"archive"}]}' \
+     -F 'metadata={"links":[],"metadata": {"action":[{"command":"print"},{"command":"archive"}]}}' \
      -F upload=@test.txt \
      https://example.org/file
 ```
 
+```bash
+curl -X PUT \
+     -F 'metadata={"id": "myPersonalFile","links":[],"metadata": {"action":[{"command":"print"},{"command":"archive"}]}}' \
+     -F upload=@test.txt \
+     https://example.org/file/myPersonalFile
+```
+
+Both PUT and POST request will not accept more than one file to be uploaded. In case multiple files are sent only the
+first file will be recognized.
 The set of readonly metadata fields is extend by the field: ```filename```, which will now be set by graviton.
 
 ## Example data (annotated)
@@ -128,7 +136,12 @@ The set of readonly metadata fields is extend by the field: ```filename```, whic
         // read only and set when a file is replaced
         "modificationDate": "2015-08-06T10:51:20+0000",
         // read only and inferred from the upload
-        "size": 12
+        "size": 12,
+        // key/value store for additional properties. Also used for add information for printing and archiving
+        "additionalProperties": [
+            {"name": "propertyName", "value": "aValue"},
+            {"name": "secondProp", "value": "otherValue"}
+        ]
     }
 }
 ```

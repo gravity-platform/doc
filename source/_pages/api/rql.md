@@ -22,6 +22,22 @@ Please see the documentation linked in the Appendix for more details on RQL.
 
 ## Special cases
 
+### elemMatch operator
+
+Use ``elemMatch`` operator to specify multiple criteria on the elements of an array such that at least one array element satisfies all the specified criteria.
+
+The following example returns documents where the ``items`` array contains at least one element that has ``type = a`` and ``name = b``:
+
+```
+elemMatch(items,and(eq(type,a),eq(name,b)))
+```
+
+Since the ``elemMatch`` only specifies a single condition, the ``elemMatch`` expression is not necessary, and instead you can use the following query:
+
+```
+eq(items..type,a)
+```
+
 ### Limit
 
 Due to the fact the [the specs](https://doc.apsstandard.org/2.1/spec/rql/) and the [reference implementation](https://github.com/persvr/rql) differ slightly we had to choose a variant.
