@@ -1,5 +1,5 @@
 ---
-title: Developer
+title: JSON Definition Guide
 layout: default
 top_nav: guides
 ---
@@ -255,9 +255,6 @@ while still being tightly coupled to the underlying read-only service.
 
 ### Relations
 
-Our schema allows you to specify relations between documents. Usually these relationships are added as type `class:...` field.
-The addtional entry in relations then ensures that such records get the approriate indexes.
-
 ```
 {
   "target": {
@@ -268,20 +265,46 @@ The addtional entry in relations then ensures that such records get the approria
 }
 ```
 
-An example relation that makes sure that the above array of bar resources does not expose an id might look as follows.
+Our schema allows you to specify relations between documents. Usually these relationships are added as type `class:...` field - 
+the `relations` array of object allows you to specify what *type* of relation you want to generate if you want to override default behavior.
+
+<div class="alert alert-info">
+    <h4>Info</h4>
+    <p>If you don't specify a <code>relations</code> entry for a given field, Graviton will generate a <code>reference</code> type of relation.
+    Having said that, it is usually good to still specify the exact kind of relationship you wish to create.</p>
+</div>
+
+In order to force the generation of an `embed` relationship, you can notate: 
 
 ```
-// @todo verify this example
 {
   "target": {
     "relations": [
       {
-        "type": "ref",
-        "collectionName": "Bar",
-        "localProperty": "Foo.bars",
-        "localValueField": "bars"
+        "type": "embed",
+        "localValueField": "myfield"
       }
     ]
   }
 }
 ```
+
+You may decide which relation type you want to have depending on your use case as they have different circumstances:
+
+A *reference* relationship:
+
+* Will save considerable amount of storage space in the database.
+* Will not allow the user to issue `RQL` queries against fields in referenced objects.
+
+An *embed* relationship
+
+* Will duplicate the record every time the user saves it, resulting in more storage needs and leaving possibly abandoned copies of a document around.
+* Will allow the user to issue `RQL` queries against fields in embedded objects.
+
+To the end user, the rendered output will be identical. This property only influences the internal storage of your structures.
+
+<div class="alert alert-info">
+    <h4>Info</h4>
+    <p>Note that you <strong>may not</strong> change relation types of existing services! This will abandon all previously saved objects
+    that are saved using the <i>old</i> structure. There is no automatic migration in place.</p>
+</div>
