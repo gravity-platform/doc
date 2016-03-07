@@ -1,5 +1,5 @@
 ---
-title: JSON Definition Guide
+title: JSON Definitions
 layout: default
 top_nav: guides
 ---
@@ -303,8 +303,9 @@ An *embed* relationship
 
 To the end user, the rendered output will be identical. This property only influences the internal storage of your structures.
 
-<div class="alert alert-info">
-    <h4>Info</h4>
+<div class="alert alert-warning">
+    <h4>Warning</h4>
     <p>Note that you <strong>may not</strong> change relation types of existing services! This will abandon all previously saved objects
-    that are saved using the <i>old</i> structure. There is no automatic migration in place.</p>
+    that are saved using the <i>old</i> structure. There is no automatic migration in place. If you need migrations please refer to the
+    <a href="/guides/mongodb_migration_guide">migration guide</a>.</p>
 </div>
