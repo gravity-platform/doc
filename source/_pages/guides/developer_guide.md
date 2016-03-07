@@ -19,7 +19,7 @@ into the following tiers.
 - [mongodb](https://www.mongodb.org/) as data tier
 - graviton, a [symfony](https://symfony.com/) based JSON/REST server generation toolkit as api tier
 - several workers as logic tier
-- various angular2 or mobile native presentation tiers that stay in-house for the most part
+- various presentation tiers that stay in-house for the most part
 
 Along with several supporting services all these services make out what we consider a gravity
 platform.
