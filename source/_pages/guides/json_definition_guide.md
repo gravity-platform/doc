@@ -67,6 +67,11 @@ to be exposed.
 The foo resource service from above shows up on http://example.com/acme/foo/ and exposes a fully editable service with
 the above.
 
+<div class="alert alert-info">
+    <h4>Info</h4>
+    <p>Creating read-only services is not (yet) covered by this guide.</p>
+</div>
+
 ### Target
 
 For the service to be usable it also needs to define some fields in the `target` entry.
@@ -239,19 +244,18 @@ There are some cases where we need to expose a array for objects as a hash, usin
 The above example uses the `id` field of the Bar document as key in hashes. It uses the `ref-field` value of the resources found by `findAll` on `AcmeNamespaceBarBundle:Bar`
 as key and only allows those values as key.
 
-#### Writable fields in readonly services
+#### Immutable fields in writable services
 
-In read-only service graviton also allows certain fields to be made writeable. This may be used to add additional fields to a service that may be changed by a client
-while still being tightly coupled to the underlying read-only service.
+Graviton also  certain fields to be made readonly. This may be used to add additional fields to a service that may not be changed by a client. This can be used to decorate services with additional info generated on the server side. One example of such a service is the `/file` endpoint where some of the metadata is generated on the server and may not be overridden by the client (ie. `metadata.size`).
 
 ```
-// @todo write and explain example
+{
+  "name": "bar",
+  "type": "string",
+  "title": "Bar",
+  "description": "A horse walks into a bar...",
+  "readOnly": true
 ```
-
-<div class="alert alert-info">
-    <h4>Info</h4>
-    <p>Creating read-only services is not (yet) covered by this guide.</p>
-</div>
 
 ### Relations
 
