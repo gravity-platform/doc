@@ -96,7 +96,7 @@ As you can see, the structure you PUT consists of the following:
     <div class="panel-body" markdown="1">
     Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
     choose it to generic. Also note that a worker ID should be a simple word, not containing any spaces. Graviton will issue an error if you have
-    invalid characters in your worker ID. See (the naming guide)[/guides/naming_guide/] if you need inspiration.
+    invalid characters in your worker ID. See [the naming guide](/guides/naming_guide/) if you need inspiration.
     </div>
 </div>
 

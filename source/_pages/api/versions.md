@@ -18,7 +18,7 @@ Since it's not a collection the endpoint does not have a slash at the end.
 GET /core/version -> returns an object containing all version numbers
 ````
 
-Only GET requests are supported an return a repsponse containing the following body.
+Only GET requests are supported an return a response containing the following body.
 
 ```
 {
@@ -31,7 +31,7 @@ Only GET requests are supported an return a repsponse containing the following b
 }
 ```
 
-A working example can be found [in the app cloud](https://graviton.scapp.io/core/version) along with [its schema]](https://graviton.scapp.io/schema/core/version).
+A working example can be found [in the app cloud](https://graviton.scapp.io/core/version) along with [its schema](https://graviton.scapp.io/schema/core/version).
 
 ### self
 
