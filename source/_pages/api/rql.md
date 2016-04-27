@@ -38,6 +38,17 @@ Since the ``elemMatch`` only specifies a single condition, the ``elemMatch`` exp
 eq(items..type,a)
 ```
 
+### search operator
+
+A search operator has been implemented to help with searching in commong fields across records. This is intended to ease clients searching capabilities and
+needs to be enabled for individual services.
+
+```
+search(foo.bar)
+```
+
+The schema endpoints contain an array of strings called  `searchable` that indicates what fields are part of the search.
+
 ### Limit
 
 Due to the fact the [the specs](https://doc.apsstandard.org/2.1/spec/rql/) and the [reference implementation](https://github.com/persvr/rql) differ slightly we had to choose a variant.
