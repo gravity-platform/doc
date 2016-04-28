@@ -91,14 +91,14 @@ Since this is basically a form submit the information is send as form fields:
 
 ```bash
 curl -X POST \
-     -F 'metadata={"links":[],"metadata":"action":[{"command":"print"},{"command":"archive"}]}' \
+     -F 'metadata={"links":[],"metadata": {"action":[{"command":"print"},{"command":"archive"}]}}' \
      -F upload=@test.txt \
      https://example.org/file
 ```
 
 ```bash
 curl -X PUT \
-     -F 'metadata={"id": "myPersonalFile","links":[],"metadata":"action":[{"command":"print"},{"command":"archive"}]}' \
+     -F 'metadata={"id": "myPersonalFile","links":[],"metadata": {"action":[{"command":"print"},{"command":"archive"}]}}' \
      -F upload=@test.txt \
      https://example.org/file/myPersonalFile
 ```
@@ -136,7 +136,12 @@ The set of readonly metadata fields is extend by the field: ```filename```, whic
         // read only and set when a file is replaced
         "modificationDate": "2015-08-06T10:51:20+0000",
         // read only and inferred from the upload
-        "size": 12
+        "size": 12,
+        // key/value store for additional properties. Also used for add information for printing and archiving
+        "additionalProperties": [
+            {"name": "propertyName", "value": "aValue"},
+            {"name": "secondProp", "value": "otherValue"}
+        ]
     }
 }
 ```
