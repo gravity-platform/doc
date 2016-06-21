@@ -13,7 +13,7 @@ It shares this model with internal components we use to load data into some grav
 
 JSON definitions usually get installed through bundles. The simplest case of such bundles being bundles that only contain some definitions.
 
-For graviton to pick up json definitions they must reside in a `Resources/defintion` folder anywhere in the bundle.
+For graviton to pick up json definitions they must reside in a `Resources/definition` folder anywhere in the bundle.
 
 <div class="alert alert-info">
     <h4>Info</h4>
