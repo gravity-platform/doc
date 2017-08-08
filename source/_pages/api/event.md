@@ -20,6 +20,9 @@ The interface between Graviton and the `worker` is a messaged based queue suppor
  we use [RabbitMQ](https://www.rabbitmq.com/). AMQP is widely adopted and bindings exists in virtually any environment,
  making it possible to write a `worker` in any language that possesses those bindings and a HTTP client.
 
+When a worker is registered it can also create a `/event/action/` translation for frontend usage. Then when a event
+is stored it can be linked to a description of the work being done. 
+
 ## When this should be used
 
 This feature is intended for any features that require "background work", like sending an email when a certain record
