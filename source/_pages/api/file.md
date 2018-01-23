@@ -14,6 +14,8 @@ Clients may use the service to store assets like images or also to store content
 
 Since the file service operates on files of all kinds of MIME-types and also stores metadata on one single endpoint it has a larger than usual surface.
 
+For further information about file service please visit: [FileBundle](https://github.com/libgraviton/graviton/tree/develop/src/Graviton/FileBundle)
+
 ## Usage
 
 ### Upload a file

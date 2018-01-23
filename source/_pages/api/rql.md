@@ -38,6 +38,16 @@ Since the ``elemMatch`` only specifies a single condition, the ``elemMatch`` exp
 eq(items..type,a)
 ```
 
+### search operator
+
+A search operator has been implemented to help with searching in common fields across records. This is intended to ease clients searching capabilities and
+needs to be enabled for individual services. Read [Indexes](/api/index-and-search) on how to define search DB fields.
+
+```
+search(foo.bar)
+```
+Result is sorted by SCORE, sum of words found by the weight assigned for each field.
+
 ### Limit
 
 Due to the fact the [the specs](https://doc.apsstandard.org/2.1/spec/rql/) and the [reference implementation](https://github.com/persvr/rql) differ slightly we had to choose a variant.
@@ -68,6 +78,35 @@ $links = array_map(
     },
     explode(',', $linkHeader)
 );
+```
+
+To extract links from header you can use the following function, sample:
+```php
+$strHeaderLink = '<http://localhost/core/module/?limit(10%2C10)>; rel="next",<http://localhost/core/module/?limit(10%2C20)>; rel="last"';
+
+function extractLinks($headerLinkString)
+{
+    preg_match_all('/<(.*?)>; rel="([^"]+)"/i', $headerLinkString, $matches);
+    if (!array_key_exists(2, $matches)) {
+        return [];
+    }
+    array_walk(
+        array_map(function($link, $key) {
+            return [$key => $link];
+        }, $matches[1], $matches[2]),
+        function($link) use (&$links) {
+            $links[key($link)] = strtr(reset($link), ['%2C' => ',']);
+        },
+    $links = []);
+    return $links;
+}
+
+// Result of print_r(extractLinks($strHeaderLink));
+Array
+(
+    [next] => http://localhost/core/module/?limit(10,10)
+    [last] => http://localhost/core/module/?limit(10,20)
+)
 ```
 
 ## Appendix

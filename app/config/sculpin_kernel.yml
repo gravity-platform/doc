@@ -2,3 +2,8 @@ sculpin_content_types:
     releases:
         type: path
         permalink: releasenote/:title/
+services:
+    twig.extension.sortbyfield:
+        class: Snilius\Twig\SortByFieldExtension
+        tags:
+            - { name: twig.extension }

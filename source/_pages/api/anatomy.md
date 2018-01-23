@@ -1,9 +1,9 @@
 ---
-title: Anatomy
+title: Introduction
 layout: default
 top_nav: api
 ---
-# Service Anatomy
+# The Graviton API
 
 Most services on a graviton instance have a predictable API surface.
 
@@ -101,7 +101,7 @@ Check the response headers to see what id your document was stored at.
 #### PUT a new document or update an existing one (client defines id)
 
 ```bash
-curl -X PUT -d '{}' https://example.org/core/app/my-id
+curl -X PUT -d '{"id": "my-id"}' https://example.org/core/app/my-id
 ```
 
 This is also referred to as an *upsert* operation.
@@ -117,3 +117,9 @@ curl -X GET https://example.org/core/app/my-id
 ```bash
 curl -X DELETE https://example.org/core/app/my-id
 ```
+
+### Learn More
+
+* [Document Lifecycle Events](/api/event)
+* [The `/file/` endpoint](/api/file)
+* [Internationalization](/api/i18n)

@@ -5,7 +5,8 @@
         "graviton/deploy-scripts": "^0.2.2",
         "components/jquery": "~1.9.1",
         "components/highlightjs": "~7.3.0",
-        "fab/sculpin-pages-bundle": "dev-master"
+        "fab/sculpin-pages-bundle": "dev-master",
+        "snilius/twig-sort-by-field": "^0.1.5"
     },
     "config": {
         "component-dir": "source/components"

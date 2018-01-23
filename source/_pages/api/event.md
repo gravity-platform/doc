@@ -20,6 +20,9 @@ The interface between Graviton and the `worker` is a messaged based queue suppor
  we use [RabbitMQ](https://www.rabbitmq.com/). AMQP is widely adopted and bindings exists in virtually any environment,
  making it possible to write a `worker` in any language that possesses those bindings and a HTTP client.
 
+When a worker is registered it can also create a `/event/action/` translation for frontend usage. Then when a event
+is stored it can be linked to a description of the work being done. 
+
 ## When this should be used
 
 This feature is intended for any features that require "background work", like sending an email when a certain record
@@ -39,7 +42,7 @@ The advantages on using this approach:
 The typical workflow for a worker is as follows:
 
 * The worker registers itself on the service `/event/worker/` by `PUT`ing his ID and subscription(s)
-* The worker connects to the message queue (the same as Graviton), binds to the topic exchange `graviton`.
+* The worker connects to a message bus (the same as Graviton) and creates or binds to a work queue.
 * The worker waits for incoming messages indefinitely.
 * Now, whenever a data change event happens to which the worker is subscribed, it will receive a message on the queue.
 * If the worker receives a message, it must be JSON decoded first.
@@ -54,8 +57,8 @@ The typical workflow for a worker is as follows:
     </div>
     <div class="panel-body" markdown="1">
     It is vital that the worker sets it's status to `working` *immediately* after receiving the message! This should happen
-    as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another worker
-    to pick up the work.
+    as fast as possible. First, to let users know that the worker picked it up, but also to make it impossible for another instance
+    of the worker to pick up the work.
     </div>
 </div>
 
@@ -96,7 +99,7 @@ As you can see, the structure you PUT consists of the following:
     <div class="panel-body" markdown="1">
     Keep in mind that your worker ID *must* be unique within the Graviton instance your registering. So pick a worker ID that shall be unique, don't
     choose it to generic. Also note that a worker ID should be a simple word, not containing any spaces. Graviton will issue an error if you have
-    invalid characters in your worker ID.
+    invalid characters in your worker ID. See [the naming guide](/guides/naming_guide/) if you need inspiration.
     </div>
 </div>
 
@@ -119,7 +122,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
 
 #### Finding the correct event names
 
-For every event that happens, Graviton publishes its message using a defined *event name* as *routing key* on the queue.
+For every event that happens, Graviton publishes its message using a defined *event name* on the queue.
 
 This event name is always a 4 (four) component string and consists of:
 
@@ -296,14 +299,10 @@ We call this object structure `QueueEvent`. Let's have a look at its properties:
     </div>
 </div>
 
-### Queue verbosity
-
-Note that Graviton writes *any* data change to the queue, regardless if a worker is subscribed to or not. This allows
-to connect to the queue "blindly" and see what happens.
+### Eventless operations
 
 If no worker has subscribed to a certain event, Graviton will *not* create an `EventStatus` object and thus the `statusUrl`
-property of the `QueueObject` is empty. But it allows you to see what is being fired when a certain event occurs or to debug
-any problems in your worker. To receive all messages, you can bind to the `graviton` topic exchange routing key `#`.
+property of the `QueueObject` is empty.
 
 ## The user perspective
 
@@ -342,7 +341,7 @@ The convention is that *all work has successfully been finished when all members
 Let's try and sum this all up. If we create a worker, we will need to implement the logic for:
 
 * Registering our worker
-* Connecting to the RabbitMq topic exchange and consuming messages
+* Connecting to or creating the RabbitMq work queue and consuming messages
 * Updating the `EventStatus` resource
 * Doing our work
 * Failure handling
